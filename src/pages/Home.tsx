@@ -27,14 +27,55 @@ function Home() {
       text: input
     };
 
-    let reply = "Maaf, aku belum mengerti.";
+ async function handleSend() {
+  if (!input.trim()) return;
 
-    const lower = input.toLowerCase();
+  const userMessage = {
+    sender: "user",
+    text: input
+  };
 
-    if (lower.includes("halo")) {
-      reply = "Halo juga 😊";
-    }
+  // tampilkan pesan user dulu
+  setMessages((prev) => [...prev, userMessage]);
 
+  const currentInput = input;
+
+  setInput("");
+
+  try {
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: currentInput
+      })
+    });
+
+    const data = await response.json();
+
+    const airaMessage = {
+      sender: "aira",
+      text: data.reply
+    };
+
+    setMessages((prev) => [
+      ...prev,
+      airaMessage
+    ]);
+  } catch (error) {
+    const errorMessage = {
+      sender: "aira",
+      text: "Maaf, server AI sedang error."
+    };
+
+    setMessages((prev) => [
+      ...prev,
+      errorMessage
+    ]);
+  }
+}
     if (lower.includes("surat")) {
       reply = "Saya bisa membantu informasi surat desa.";
     }
