@@ -1,15 +1,34 @@
 function Home() {
   return (
-    <div>
-      <h1>Aira AI Desa</h1>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#f5f5f5",
+        padding: "20px",
+        fontFamily: "Arial"
+      }}
+    >
+      <div
+        style={{
+          background: "#b30000",
+          color: "white",
+          padding: "20px",
+          borderRadius: "16px"
+        }}
+      >
+        <h1>Aira AI Desa 🇮🇩</h1>
+        <p>Asisten Digital Pelayanan Masyarakat</p>
+      </div>
 
-      <p>Selamat datang di Aira.</p>
+      <div style={{ marginTop: "20px" }}>
+        <button style={{ marginRight: "10px" }}>💬 Chat Aira</button>
 
-      <button>Kuis</button>
+        <button style={{ marginRight: "10px" }}>🏆 Kuis</button>
 
-      <button>Refleksi</button>
+        <button style={{ marginRight: "10px" }}>🌸 Refleksi</button>
 
-      <button>Langkahku</button>
+        <button>📅 Langkahku</button>
+      </div>
     </div>
   );
 }
