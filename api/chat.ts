@@ -5,12 +5,12 @@ export default async function handler(req, res) {
 
   const { message } = req.body;
 
-  // 🔥 DEBUG PENTING (INI POIN NOMOR 3)
-  console.log("ENV CHECK OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
+  // 🔥 DEBUG ENV (WAJIB CEK DI VERCEL LOGS)
+  console.log("ENV OPENROUTER:", process.env.OPENROUTER_API_KEY);
 
   if (!process.env.OPENROUTER_API_KEY) {
     return res.status(500).json({
-      reply: "API KEY belum terbaca di server (ENV undefined)"
+      reply: "❌ API KEY belum terbaca di Vercel (ENV undefined)"
     });
   }
 
@@ -28,7 +28,8 @@ export default async function handler(req, res) {
           messages: [
             {
               role: "system",
-              content: "Kamu adalah Aira, AI desa yang ramah dan membantu."
+              content:
+                "Kamu adalah Aira, AI desa yang ramah dan membantu."
             },
             {
               role: "user",
@@ -43,9 +44,17 @@ export default async function handler(req, res) {
 
     console.log("OPENROUTER RESPONSE:", data);
 
+    // 🔥 TAMBAHAN: cek kalau API gagal
+    if (!response.ok) {
+      return res.status(500).json({
+        reply:
+          data?.error?.message ||
+          "OpenRouter error (auth atau model problem)"
+      });
+    }
+
     const reply =
       data?.choices?.[0]?.message?.content ||
-      data?.error?.message ||
       "AI tidak merespon";
 
     return res.status(200).json({ reply });
