@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from “react”;
 
 function Home() {
   const [messages, setMessages] = useState([
@@ -8,7 +8,8 @@ function Home() {
     }
   ]);
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(““);
+ const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   function handleSend() {
     if (!input.trim()) return;
@@ -43,6 +44,12 @@ function Home() {
 
     setInput("");
   }
+
+useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({
+    behavior: "smooth"
+  });
+}, [messages]);
 
   return (
     <div
@@ -90,7 +97,7 @@ function Home() {
         }}
       >
         {messages.map((msg, index) => (
-          <div
+          <div ref={messagesEndRef}></div>
             key={index}
             style={{
               marginBottom: "10px",
