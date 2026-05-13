@@ -6,39 +6,46 @@ export default async function handler(req, res) {
   const { message } = req.body;
 
   try {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://aira-smart.vercel.app",
-        "X-Title": "Aira AI Desa"
-      },
-      body: JSON.stringify({
-        model: "qwen/qwen3.6-flash",
-        messages: [
-          {
-            role: "system",
-            content: "Kamu adalah Aira, asisten AI desa yang ramah dan membantu masyarakat."
-          },
-          {
-            role: "user",
-            content: message
-          }
-        ]
-      })
-    });
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "openai/gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content:
+                "Kamu adalah Aira, AI desa yang ramah dan membantu."
+            },
+            {
+              role: "user",
+              content: message
+            }
+          ]
+        })
+      }
+    );
 
     const data = await response.json();
 
+    console.log("OPENROUTER RESPONSE:", data);
+
     const reply =
       data?.choices?.[0]?.message?.content ||
-      "Maaf, aku tidak bisa menjawab sekarang.";
+      data?.error?.message ||
+      "AI tidak merespon";
 
     res.status(200).json({ reply });
   } catch (err) {
+    console.error(err);
+
     res.status(500).json({
-      reply: "Server AI sedang error."
+      reply: "Server error"
     });
   }
 }
