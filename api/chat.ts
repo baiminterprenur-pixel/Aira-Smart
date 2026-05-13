@@ -5,6 +5,15 @@ export default async function handler(req, res) {
 
   const { message } = req.body;
 
+  // 🔥 DEBUG PENTING (INI POIN NOMOR 3)
+  console.log("ENV CHECK OPENROUTER_API_KEY:", process.env.OPENROUTER_API_KEY);
+
+  if (!process.env.OPENROUTER_API_KEY) {
+    return res.status(500).json({
+      reply: "API KEY belum terbaca di server (ENV undefined)"
+    });
+  }
+
   try {
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
@@ -19,8 +28,7 @@ export default async function handler(req, res) {
           messages: [
             {
               role: "system",
-              content:
-                "Kamu adalah Aira, AI desa yang ramah dan membantu."
+              content: "Kamu adalah Aira, AI desa yang ramah dan membantu."
             },
             {
               role: "user",
@@ -40,11 +48,11 @@ export default async function handler(req, res) {
       data?.error?.message ||
       "AI tidak merespon";
 
-    res.status(200).json({ reply });
+    return res.status(200).json({ reply });
   } catch (err) {
-    console.error(err);
+    console.error("ERROR:", err);
 
-    res.status(500).json({
+    return res.status(500).json({
       reply: "Server error"
     });
   }
