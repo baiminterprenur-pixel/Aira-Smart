@@ -75,7 +75,9 @@ function Home() {
         }}
       >
         <button>🏆 Kuis</button>
+
         <button>🌸 Refleksi</button>
+
         <button>📅 Langkahku</button>
       </div>
 
@@ -127,6 +129,11 @@ function Home() {
           placeholder="Tulis pesan..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSend();
+            }
+          }}
           style={{
             flex: 1,
             padding: "10px"
