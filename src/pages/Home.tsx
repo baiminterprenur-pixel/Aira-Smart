@@ -12,102 +12,68 @@ function Home() {
 
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-  // Auto scroll ke bawah
+  // Auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({
       behavior: "smooth"
     });
   }, [messages]);
 
-  function handleSend() {
+  // KIRIM PESAN KE AI
+  async function handleSend() {
     if (!input.trim()) return;
+
+    const currentInput = input;
 
     const userMessage = {
       sender: "user",
-      text: input
+      text: currentInput
     };
 
- async function handleSend() {
-  if (!input.trim()) return;
-
-  const userMessage = {
-    sender: "user",
-    text: input
-  };
-
-  // tampilkan pesan user dulu
-  setMessages((prev) => [...prev, userMessage]);
-
-  const currentInput = input;
-
-  setInput("");
-
-  try {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: currentInput
-      })
-    });
-
-    const data = await response.json();
-
-    const airaMessage = {
-      sender: "aira",
-      text: data.reply
-    };
-
+    // tampilkan pesan user
     setMessages((prev) => [
       ...prev,
-      airaMessage
-    ]);
-  } catch (error) {
-    const errorMessage = {
-      sender: "aira",
-      text: "Maaf, server AI sedang error."
-    };
-
-    setMessages((prev) => [
-      ...prev,
-      errorMessage
-    ]);
-  }
-}
-    if (lower.includes("surat")) {
-      reply = "Saya bisa membantu informasi surat desa.";
-    }
-
-    if (lower.includes("bantuan")) {
-      reply = "Silakan tanyakan bantuan desa yang ingin diketahui.";
-    }
-
-    if (lower.includes("kuis")) {
-      reply = "Fitur kuis sedang disiapkan 🏆";
-    }
-
-    if (lower.includes("refleksi")) {
-      reply = "Fitur Refleksi siap membantu konsultasi psikologi 🌸";
-    }
-
-    if (lower.includes("langkahku")) {
-      reply = "Langkahku membantu mengatur aktivitas harian 📅";
-    }
-
-    const airaMessage = {
-      sender: "aira",
-      text: reply
-    };
-
-    setMessages((prev) => [
-      ...prev,
-      userMessage,
-      airaMessage
+      userMessage
     ]);
 
+    // kosongkan input
     setInput("");
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          message: currentInput
+        })
+      });
+
+      const data = await response.json();
+
+      const airaMessage = {
+        sender: "aira",
+        text:
+          data.reply ||
+          "Maaf, belum ada balasan dari AI."
+      };
+
+      setMessages((prev) => [
+        ...prev,
+        airaMessage
+      ]);
+    } catch (error) {
+      const errorMessage = {
+        sender: "aira",
+        text: "Maaf, server AI sedang error."
+      };
+
+      setMessages((prev) => [
+        ...prev,
+        errorMessage
+      ]);
+    }
   }
 
   return (
@@ -211,7 +177,8 @@ function Home() {
                     ? "white"
                     : "black",
                 maxWidth: "80%",
-                boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
+                boxShadow:
+                  "0 2px 5px rgba(0,0,0,0.1)"
               }}
             >
               {msg.text}
