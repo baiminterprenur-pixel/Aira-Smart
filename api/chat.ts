@@ -23,6 +23,7 @@ export default async function handler(req, res) {
       models.map(async (model) => {
         const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
           method: "POST",
+          .
           headers: {
             Authorization: `Bearer ${apiKey}`,
             "Content-Type": "application/json"
