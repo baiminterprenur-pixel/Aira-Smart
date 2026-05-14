@@ -45,9 +45,7 @@ export default async function handler(req, res) {
             console.error(`Model ${model} error:`, data?.error?.message);
             return "";
           }
-          const reply = data?.choices?.[0]?.message?.content?.trim() || "";
-          console.log(`Model ${model} reply:`, reply);
-          return reply;
+          return data?.choices?.[0]?.message?.content?.trim() || "";
         } catch (err) {
           console.error(`Fetch error dari model ${model}:`, err);
           return "";
@@ -58,15 +56,23 @@ export default async function handler(req, res) {
     // Gabungkan semua jawaban jadi satu string
     const combined = responses.filter(Boolean).join(" ");
 
-    // Hilangkan kalimat duplikat
+    // Pecah jadi kalimat
     const sentences = combined.split(/(?<=[.!?])\s+/);
+
+    // Hilangkan kalimat yang mirip (cek kata kunci utama)
     const uniqueSentences = [];
-    const seen = new Set();
+    const seenKeys = new Set();
 
     for (const s of sentences) {
-      const key = s.toLowerCase().replace(/[^\w\s]/g, "").trim();
-      if (key && !seen.has(key)) {
-        seen.add(key);
+      const key = s
+        .toLowerCase()
+        .replace(/[^\w\s]/g, "")
+        .trim();
+
+      // Ambil kata kunci utama (misalnya 3 kata pertama)
+      const mainKey = key.split(" ").slice(0, 3).join(" ");
+      if (mainKey && !seenKeys.has(mainKey)) {
+        seenKeys.add(mainKey);
         uniqueSentences.push(s);
       }
     }
