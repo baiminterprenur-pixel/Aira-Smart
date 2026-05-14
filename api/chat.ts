@@ -13,15 +13,14 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 🔹 Daftar model yang mau dipanggil
+    // 🔹 Semua pakai model gratis Laguna XS.2
     const models = [
       "openai/Laguna XS.2",
-      "openai/Laguna M.1",
-      "openai/CoBuddy",
-      "openai/Ring-2.6-1T"
+      "openai/Laguna XS.2",
+      "openai/Laguna XS.2"
     ];
 
-    // 🔹 Panggil semua model paralel
+    // 🔹 Panggil semua model paralel (walau sama, bisa dianggap multi-AI)
     const responses = await Promise.all(
       models.map(async (m) => {
         const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -53,10 +52,10 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "openai/Laguna XS.2", // Aira pakai Laguna XS.2
+        model: "openai/Laguna XS.2", // Aira tetap pakai Laguna XS.2
         messages: [
           { role: "system", content: "Kamu adalah Aira, AI desa yang ramah dan membantu. Tugasmu: tarik kesimpulan dari jawaban beberapa AI lain." },
-          { role: "user", content: `Ini jawaban dari 3 AI lain:\n\n${replies.join("\n\n")} \n\nTolong buat kesimpulan ringkas dan jelas.` }
+          { role: "user", content: `Ini jawaban dari beberapa AI:\n\n${replies.join("\n\n")} \n\nTolong buat kesimpulan ringkas dan jelas.` }
         ]
       })
     });
@@ -65,7 +64,7 @@ export default async function handler(req, res) {
     const finalReply = summaryData?.choices?.[0]?.message?.content || "❌ Aira tidak merespon";
 
     return res.status(200).json({
-      replies,       // jawaban mentah dari semua AI
+      replies,       // jawaban mentah dari semua AI (walau sama model)
       conclusion: finalReply // kesimpulan dari Aira
     });
   } catch (err) {
