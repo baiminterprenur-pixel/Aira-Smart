@@ -12,8 +12,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": false,
-    "types": ["node"]   // Tambahan penting agar process dikenali
+    "types": ["node"]   // Tambahan agar process dikenali
   },
-  "include": ["src", "api"],   // Tambahkan folder api agar file chat.ts ikut ter-compile
+  "include": ["src", "api"],   // Pastikan folder api ikut di-compile
   "references": []
 }
