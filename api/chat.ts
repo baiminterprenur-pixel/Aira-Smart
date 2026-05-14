@@ -20,7 +20,8 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "openai/Laguna XS.2", // ✅ model gratis
+        // 🔹 Gunakan model ID yang valid (cek di dashboard OpenRouter)
+        model: "openrouter/laguna-xs-2",
         messages: [
           { role: "system", content: "Kamu adalah Aira, AI desa yang ramah dan membantu." },
           { role: "user", content: message }
@@ -37,7 +38,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // 🔹 Cek lebih ketat + fallback
     if (!data?.choices || !data.choices[0]?.message?.content) {
       return res.status(200).json({ reply: "❌ Maaf, belum ada balasan dari AI." });
     }
