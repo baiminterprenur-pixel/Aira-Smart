@@ -43,9 +43,23 @@ export default async function handler(req, res) {
       })
     );
 
-    // Gabungkan semua jawaban jadi satu paragraf
+    // Gabungkan semua jawaban jadi satu string
     const combined = responses.filter(Boolean).join(" ");
-    const finalReply = combined || "❌ Maaf, belum ada balasan dari AI.";
+
+    // Hilangkan kalimat duplikat
+    const sentences = combined.split(/(?<=[.!?])\s+/);
+    const uniqueSentences = [];
+    const seen = new Set();
+
+    for (const s of sentences) {
+      const key = s.toLowerCase().replace(/[^\w\s]/g, "").trim();
+      if (key && !seen.has(key)) {
+        seen.add(key);
+        uniqueSentences.push(s);
+      }
+    }
+
+    const finalReply = uniqueSentences.join(" ") || "❌ Maaf, belum ada balasan dari AI.";
 
     return res.status(200).json({ reply: finalReply });
   } catch (err) {
