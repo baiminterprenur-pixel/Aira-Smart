@@ -12,41 +12,42 @@ export default async function handler(req, res) {
     });
   }
 
+  const models = [
+    "poolside/laguna-xs.2:free",
+    "inclusionai/ring-2.6-1t:free",
+    "google/gemma-4-31b-it:free"
+  ];
+
   try {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        // ✅ Model ID resmi Laguna XS.2 (free)
-        model: "poolside/laguna-xs.2:free",
-        messages: [
-          {
-            role: "system",
-            content: "Kamu adalah Aira, AI desa yang ramah. Jawablah dengan bahasa sederhana, mudah dimengerti, dan tidak terlalu panjang."
+    const responses = await Promise.all(
+      models.map(async (model) => {
+        const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json"
           },
-          { role: "user", content: message }
-        ]
+          body: JSON.stringify({
+            model,
+            messages: [
+              {
+                role: "system",
+                content: "Kamu adalah Aira, AI desa yang ramah. Jawablah dengan bahasa sederhana, mudah dimengerti, dan tidak terlalu panjang."
+              },
+              { role: "user", content: message }
+            ]
+          })
+        });
+        const data = await resp.json();
+        return data?.choices?.[0]?.message?.content?.trim() || "";
       })
-    });
+    );
 
-    const data = await response.json();
-    console.log("DEBUG DATA:", data);
+    // Gabungkan semua jawaban jadi satu paragraf
+    const combined = responses.filter(Boolean).join(" ");
+    const finalReply = combined || "❌ Maaf, belum ada balasan dari AI.";
 
-    if (!response.ok) {
-      return res.status(500).json({
-        reply: data?.error?.message || "OpenRouter error (auth atau model problem)"
-      });
-    }
-
-    if (!data?.choices || !data.choices[0]?.message?.content) {
-      return res.status(200).json({ reply: "❌ Maaf, belum ada balasan dari AI." });
-    }
-
-    const reply = data.choices[0].message.content.trim();
-    return res.status(200).json({ reply });
+    return res.status(200).json({ reply: finalReply });
   } catch (err) {
     console.error("ERROR:", err);
     return res.status(500).json({ reply: "Server error" });
