@@ -23,14 +23,17 @@ export default async function handler(req, res) {
         // ✅ Model ID resmi Laguna XS.2 (free)
         model: "poolside/laguna-xs.2:free",
         messages: [
-          { role: "system", content: "Kamu adalah Aira, AI desa yang ramah dan membantu." },
+          {
+            role: "system",
+            content: "Kamu adalah Aira, AI desa yang ramah. Jawablah dengan bahasa sederhana, mudah dimengerti, dan tidak terlalu panjang."
+          },
           { role: "user", content: message }
         ]
       })
     });
 
     const data = await response.json();
-    console.log("DEBUG DATA:", data); // 🔍 cek isi balasan di log Vercel
+    console.log("DEBUG DATA:", data);
 
     if (!response.ok) {
       return res.status(500).json({
