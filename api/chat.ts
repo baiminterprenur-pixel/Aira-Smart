@@ -14,12 +14,6 @@ export default async function handler(req, res) {
     });
   }
 
-  // 🔑 Validasi header Authorization
-  const authHeader = req.headers.authorization;
-  if (!authHeader || authHeader !== `Bearer ${apiKey}`) {
-    return res.status(401).json({ error: "Missing or invalid Authentication header" });
-  }
-
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -28,7 +22,7 @@ export default async function handler(req, res) {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "openai/gpt-4o-mini",
+        model: "openai/gpt-3.5-turbo", // ✅ model gratis
         messages: [
           { role: "system", content: "Kamu adalah Aira, AI desa yang ramah dan membantu." },
           { role: "user", content: message }
