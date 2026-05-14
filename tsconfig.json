@@ -6,14 +6,13 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "moduleResolution": "Node",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": false,
-    "types": ["node"]   // Tambahan agar process dikenali
+    "types": ["node"]
   },
-  "include": ["src", "api"],   // Pastikan folder api ikut di-compile
+  "include": ["src", "api"],
   "references": []
 }
