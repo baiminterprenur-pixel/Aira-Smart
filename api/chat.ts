@@ -13,60 +13,37 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 🔹 Semua pakai model gratis Laguna XS.2
-    const models = [
-      "openai/Laguna XS.2",
-      "openai/Laguna XS.2",
-      "openai/Laguna XS.2"
-    ];
-
-    // 🔹 Panggil semua model paralel (walau sama, bisa dianggap multi-AI)
-    const responses = await Promise.all(
-      models.map(async (m) => {
-        const resp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            model: m,
-            messages: [
-              { role: "system", content: `Kamu adalah ${m}, AI yang menjawab sesuai gaya masing-masing.` },
-              { role: "user", content: message }
-            ]
-          })
-        });
-        return resp.json();
-      })
-    );
-
-    // 🔹 Ambil jawaban dari tiap model
-    const replies = responses.map(r => r?.choices?.[0]?.message?.content || "❌ Tidak ada jawaban");
-
-    // 🔹 Kirim semua jawaban ke Aira untuk kesimpulan
-    const summaryResp = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "openai/Laguna XS.2", // Aira tetap pakai Laguna XS.2
+        model: "openai/Laguna XS.2", // ✅ model gratis
         messages: [
-          { role: "system", content: "Kamu adalah Aira, AI desa yang ramah dan membantu. Tugasmu: tarik kesimpulan dari jawaban beberapa AI lain." },
-          { role: "user", content: `Ini jawaban dari beberapa AI:\n\n${replies.join("\n\n")} \n\nTolong buat kesimpulan ringkas dan jelas.` }
+          { role: "system", content: "Kamu adalah Aira, AI desa yang ramah dan membantu." },
+          { role: "user", content: message }
         ]
       })
     });
 
-    const summaryData = await summaryResp.json();
-    const finalReply = summaryData?.choices?.[0]?.message?.content || "❌ Aira tidak merespon";
+    const data = await response.json();
+    console.log("DEBUG DATA:", data); // 🔍 cek isi balasan di log Vercel
 
-    return res.status(200).json({
-      replies,       // jawaban mentah dari semua AI (walau sama model)
-      conclusion: finalReply // kesimpulan dari Aira
-    });
+    if (!response.ok) {
+      return res.status(500).json({
+        reply: data?.error?.message || "OpenRouter error (auth atau model problem)"
+      });
+    }
+
+    // 🔹 Cek lebih ketat + fallback
+    if (!data?.choices || !data.choices[0]?.message?.content) {
+      return res.status(200).json({ reply: "❌ Maaf, belum ada balasan dari AI." });
+    }
+
+    const reply = data.choices[0].message.content.trim();
+    return res.status(200).json({ reply });
   } catch (err) {
     console.error("ERROR:", err);
     return res.status(500).json({ reply: "Server error" });
