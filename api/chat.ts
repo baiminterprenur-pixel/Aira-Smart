@@ -59,7 +59,7 @@ export default async function handler(req, res) {
     // Pecah jadi kalimat
     const sentences = combined.split(/(?<=[.!?])\s+/);
 
-    // Hilangkan kalimat yang mirip (cek kata kunci utama)
+    // Ambil poin penting (hindari pengulangan maksud)
     const uniqueSentences = [];
     const seenKeys = new Set();
 
@@ -69,16 +69,17 @@ export default async function handler(req, res) {
         .replace(/[^\w\s]/g, "")
         .trim();
 
-      // Ambil kata kunci utama (misalnya 3 kata pertama)
-      const mainKey = key.split(" ").slice(0, 3).join(" ");
+      // Ambil kata kunci inti (2 kata pertama)
+      const mainKey = key.split(" ").slice(0, 2).join(" ");
       if (mainKey && !seenKeys.has(mainKey)) {
         seenKeys.add(mainKey);
         uniqueSentences.push(s);
       }
     }
 
+    // Batasi maksimal 3 kalimat agar ringkas
     const finalReply =
-      uniqueSentences.join(" ") || "❌ Maaf, belum ada balasan dari AI.";
+      uniqueSentences.slice(0, 3).join(" ") || "❌ Maaf, belum ada balasan dari AI.";
 
     return res.status(200).json({ reply: finalReply });
   } catch (err) {
