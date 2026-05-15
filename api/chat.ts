@@ -57,14 +57,14 @@ export default async function handler(req, res) {
   if (feedbackKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply:
-        'Untuk memberi masukan ke Desa Mekar Sari, silakan klik link berikut:<br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank" rel="noopener noreferrer">📝 Form Masukan Desa Mekar Sari</a>'
+        'Terimakasih atas masukannya, untuk memberi masukan ke Desa Mekar Sari, silakan klik link berikut:<br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank" rel="noopener noreferrer">📝 Form Masukan Desa Mekar Sari</a>'
     });
   }
 
   if (bantuanKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply:
-        'Untuk mengajukan bantuan, silakan klik link berikut:<br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Form Pengajuan Bantuan Desa Mekar Sari</a>'
+        'kepada Bapak/Ibu yang ingin mengajukan bantuan, silakan klik link berikut:<br><br><a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank" rel="noopener noreferrer">📋 Form Pengajuan Bantuan Desa Mekar Sari</a>'
     });
   }
 
