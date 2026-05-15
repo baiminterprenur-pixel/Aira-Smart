@@ -93,10 +93,10 @@ function Home() {
           padding: "20px"
         }}
       >
-        <h1>Aira AI Desa 🇮🇩</h1>
+        <h1>Aira AI Desa Mekar Sari 🇮🇩</h1>
 
         <p>
-          Asisten Digital Pelayanan Masyarakat
+          Asisten Digital Pelayanan Masyarakat Desa Mekar Sari
         </p>
       </div>
 
