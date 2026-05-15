@@ -16,34 +16,19 @@ export default async function handler(req, res) {
 
   // 🔎 Kata kunci khusus
   const developerKeywords = [
-    "siapa pengembang",
-    "siapa yang buat kamu",
-    "siapa penciptamu",
-    "siapa yang bikin kamu",
-    "siapa yang ciptakan kamu",
-    "siapa yang program kamu",
-    "pengembangmu siapa",
-    "dibuat oleh siapa",
-    "developer kamu"
+    "siapa pengembang","siapa yang buat kamu","siapa penciptamu",
+    "siapa yang bikin kamu","siapa yang ciptakan kamu","siapa yang program kamu",
+    "pengembangmu siapa","dibuat oleh siapa","developer kamu"
   ];
 
   const feedbackKeywords = [
-    "beri masukan",
-    "memberi masukan",
-    "kasih masukan",
-    "saran untuk desa",
-    "kritik desa",
-    "feedback desa",
-    "masukan ke desa mekar sari"
+    "beri masukan","memberi masukan","kasih masukan",
+    "saran untuk desa","kritik desa","feedback desa","masukan ke desa mekar sari"
   ];
 
   const bantuanKeywords = [
-    "ajukan bantuan",
-    "minta bantuan",
-    "pengajuan bantuan",
-    "bantuan desa",
-    "form bantuan",
-    "mengajukan bantuan"
+    "ajukan bantuan","minta bantuan","pengajuan bantuan",
+    "bantuan desa","form bantuan","mengajukan bantuan"
   ];
 
   // 🔎 Jawaban khusus
