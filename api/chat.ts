@@ -46,30 +46,29 @@ export default async function handler(req, res) {
     "mengajukan bantuan"
   ];
 
-  // 🔎 Cek developer
+  // 🔎 Jawaban khusus
   if (developerKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply:
-        "Saya dikembangkan oleh **Sabtu Ibrahim alias Baim**, perangkat Desa Mekar Sari Kecamatan Keluang. 🚀"
+        "Saya dikembangkan oleh <b>Sabtu Ibrahim alias Baim</b>, perangkat Desa Mekar Sari Kecamatan Keluang. 🚀"
     });
   }
 
-  // 🔎 Cek masukan
   if (feedbackKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply:
-        "Untuk memberi masukan ke Desa Mekar Sari, silakan isi formulir berikut: https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header"
+        'Untuk memberi masukan ke Desa Mekar Sari, silakan isi formulir berikut: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank">Form Masukan Desa Mekar Sari</a>'
     });
   }
 
-  // 🔎 Cek bantuan
   if (bantuanKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply:
-        "Untuk mengajukan bantuan, silakan isi formulir berikut: https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header"
+        'Untuk mengajukan bantuan, silakan isi formulir berikut: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank">Form Pengajuan Bantuan Desa Mekar Sari</a>'
     });
   }
 
+  // 🔎 Default: panggil model AI
   const models = [
     "poolside/laguna-xs.2:free",
     "inclusionai/ring-2.6-1t:free",
