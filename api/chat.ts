@@ -106,15 +106,68 @@ Iya, ada yang bisa saya bantu?
 
     {
       keywords: [
-        "aira aku mau buat surat nih",
-        "buat surat",
-        "mau buat surat"
+        "aira aku mau buat surat domisili nih",
+        "buat surat domisili",
+        "mau buat surat domisili"
+       "aira aku mau buat surat domisili nih",
+       "buat surat domisili",
+       "mau buat surat domisili",
+       "bisa bantu buat surat domisili",
+       "aku mau bikin surat domisili",
+       "cara buat surat domisili",
+       "minta buatkan surat domisili",
+       "buat surat keterangan domisili",
+       "surat domisili dong",
+       "mau urus surat domisili",
+       "tolong buat surat domisili",
+       "saya ingin membuat surat domisili",
+       "saya mau buat surat domisili",
+       "bantu bikin surat domisili",
+       "pengajuan surat domisili",
+       "permohonan surat domisili",
+       "surat domisili penduduk",
+       "buatkan surat domisili saya",
+       "mau bikin surat keterangan domisili",
+       "aku ingin buat surat domisili",
+       "bisa bikin surat domisili ga",
+       "mau minta surat domisili",
+       "urus domisili",
+       "bikin domisili",
+       "surat domisili",
+       "domisili",
+       "buat surat domisili sekarang",
+       "aku perlu surat domisili",
+       "mau buat surat tempat tinggal",
+       "buat surat tempat tinggal",
+       "surat keterangan tempat tinggal",
+       "mau bikin surat tempat tinggal",
+       "izin buat surat domisili",
+       "minta surat keterangan tempat tinggal",
+       "bantu urus domisili",
+       "saya perlu surat domisili",
+       "surat domisili warga",
+       "buat surat domisili online",
+"pengurusan surat domisili",
+       "mau cetak surat domisili",
+       "pengajuan domisili",
+       "buatkan domisili penduduk",
+       "surat domisili pribadi",
+      "surat domisili untuk kerja",
+       "surat domisili untuk sekolah",
+       "surat domisili untuk bank",
+       "surat domisili usaha",
+       "buat surat domisili usaha",
+       "mau bikin surat domisili usaha",
+       "surat keterangan domisili usaha",
+       "skdu",
+       "buat skdu",
+       "mau buat skdu"
       ],
 
       reply: `
-Oke, silakan isi datamu di link berikut ya:
+Oke, silakan isi datamu jika ingin buat surat domisili di link berikut ya :
 
-https://LINK-SURAT-KAMU-DI-SINI.com
+https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header
 `
     },
 
