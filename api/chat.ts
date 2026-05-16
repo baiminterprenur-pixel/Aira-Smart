@@ -80,7 +80,23 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha di link beriku
 📄 Form Surat Keterangan Usaha
 </a>
 `
+    },
+
+    // 📄 SURAT KETERANGAN TIDAK MAMPU
+    {
+      keywords: [
+        "buat surat keterangan tidak mampu","mau buat surat keterangan tidak mampu","surat keterangan tidak mampu",
+        "sktm","buat sktm","mau buat sktm","surat tidak mampu"
+      ],
+      reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tidak mampu di link berikut ya :<br><br>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfZwvH39BgqzMZAU8q9qodU1SXsktu8xgVUvA4LLovsb5Wosg/viewform?usp=header" target="_blank" rel="noopener noreferrer">
+📄 Form Surat Keterangan Tidak mampu
+</a>
+`
     }
+
   ];
 
   // =========================================================
