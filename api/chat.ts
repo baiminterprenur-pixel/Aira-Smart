@@ -43,13 +43,16 @@ export default async function handler(req, res) {
   ];
 
   // =========================================================
-  // 🔥 CUSTOM RESPONSES
+  // 🔥 CUSTOM RESPONSES (termasuk sapaan)
   // =========================================================
   const customResponses = [
+    // 👋 SAPAAN
     {
       keywords: ["hai selamat malam","hai selamat pagi","hai selamat siang","hai selamat sore","hai","halo","aira"],
       reply: `Iya, ada yang bisa saya bantu?`
     },
+
+    // 📄 SURAT DOMISILI
     {
       keywords: [
         "aira aku mau buat surat domisili nih","buat surat domisili","mau buat surat domisili","bisa bantu buat surat domisili",
@@ -67,13 +70,15 @@ export default async function handler(req, res) {
       ],
       reply: `Oke, silakan isi datamu jika ingin buat surat domisili di link berikut ya :
 
-https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header`
+[Form Surat Domisili](https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header)`
     },
+
+    // 📄 SURAT KETERANGAN USAHA
     {
       keywords: ["buat surat keterangan usaha","mau buat surat keterangan usaha","surat keterangan usaha","sku","buat sku","mau buat sku","surat usaha"],
       reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha di link berikut ya :
 
-https://docs.google.com/forms/d/e/1FAIpQLSfwKiGjCUQaAbebp0khcr0eKGYHKwNdnmKfYmMaq_6NLE6yfw/viewform?usp=header`
+[Form SKU](https://docs.google.com/forms/d/e/1FAIpQLSfwKiGjCUQaAbebp0khcr0eKGYHKwNdnmKfYmMaq_6NLE6yfw/viewform?usp=header)`
     }
   ];
 
@@ -88,13 +93,17 @@ https://docs.google.com/forms/d/e/1FAIpQLSfwKiGjCUQaAbebp0khcr0eKGYHKwNdnmKfYmMa
 
   if (feedbackKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
-      reply: "Terimakasih atas masukannya. Silakan isi form berikut:\n\nhttps://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header"
+      reply: `Terimakasih atas masukannya. Silakan isi form berikut:
+
+[Form Feedback Desa](https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header)`
     });
   }
 
   if (bantuanKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
-      reply: "Silakan isi form bantuan berikut:\n\nhttps://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header"
+      reply: `Silakan isi form bantuan berikut:
+
+[Form Bantuan Desa](https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header)`
     });
   }
 
