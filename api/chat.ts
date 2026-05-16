@@ -225,13 +225,22 @@ ISI JAWABAN DI SINI
   // =========================================================
 
   for (const item of customResponses) {
-    if (item.keywords.some((kw) => lowerMsg.includes(kw))) {
-      return res.status(200).json({
-        reply: item.reply
-      });
-    }
-  }
 
+  const matched = item.keywords.some((kw) => {
+
+    const words = kw.toLowerCase().split(" ");
+
+    return words.every((word) =>
+      lowerMsg.includes(word)
+    );
+  });
+
+  if (matched) {
+    return res.status(200).json({
+      reply: item.reply
+    });
+  }
+}
   // =========================================================
   // 🤖 DEFAULT AI RESPONSE
   // =========================================================
