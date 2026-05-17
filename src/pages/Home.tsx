@@ -3,12 +3,37 @@ import { useState, useEffect, useRef } from "react";
 function Home() {
 
   // =========================================================
+  // 🌸 MODE REFLEKSI
+  // =========================================================
+  const REFLEKSI_PROMPT = `
+Kamu adalah Aira Refleksi.
+
+Kamu adalah teman ngobrol yang hangat, santai, nyaman, dan penuh perhatian.
+
+Bantu pengguna merasa lebih tenang dan didengar lewat obrolan ringan.
+
+Gunakan bahasa Indonesia sederhana dan natural seperti teman dekat.
+
+Jangan formal.
+Jangan menghakimi.
+Jangan terlalu panjang.
+`;
+
+  // =========================================================
   // 💬 PESAN DEFAULT
   // =========================================================
   const defaultMessage = [
     {
       sender: "aira",
-      text: "Halo 👋 Aku Aira, asisten digital Desa Mekar Sari. Ada yang bisa aku bantu?"
+      text: `
+Halo 👋 Aku Aira, asisten digital Desa Mekar Sari.<br><br>
+
+Aku siap membantu:
+<br>• Pelayanan desa
+<br>• Informasi surat
+<br>• Refleksi & teman ngobrol
+<br>• Pendampingan ringan masyarakat
+`
     }
   ];
 
@@ -80,26 +105,31 @@ function Home() {
   }
 
   // =========================================================
-  // 📤 KIRIM PESAN
+  // 📤 KIRIM PESAN KE AI
   // =========================================================
-  async function handleSend() {
+  async function sendToAI(customMessage = null) {
 
-    if (!input.trim() || loading) return;
+    const finalMessage =
+      customMessage || input;
 
-    const currentInput = input;
+    if (!finalMessage.trim() || loading) return;
 
     // =========================================================
-    // 👤 PESAN USER
+    // 👤 USER MESSAGE
     // =========================================================
-    const userMessage = {
-      sender: "user",
-      text: currentInput
-    };
+    if (!customMessage) {
 
-    setMessages((prev) => [
-      ...prev,
-      userMessage
-    ]);
+      const userMessage = {
+        sender: "user",
+        text: finalMessage
+      };
+
+      setMessages((prev) => [
+        ...prev,
+        userMessage
+      ]);
+
+    }
 
     setInput("");
 
@@ -108,7 +138,7 @@ function Home() {
     try {
 
       // =========================================================
-      // 🤖 REQUEST KE API
+      // 🤖 REQUEST API
       // =========================================================
       const response = await fetch("/api/chat", {
 
@@ -119,7 +149,7 @@ function Home() {
         },
 
         body: JSON.stringify({
-          message: currentInput
+          message: finalMessage
         })
 
       });
@@ -127,13 +157,16 @@ function Home() {
       const data = await response.json();
 
       // =========================================================
-      // 🤖 BALASAN AIRA
+      // 🤖 BALASAN AI
       // =========================================================
       const airaMessage = {
+
         sender: "aira",
+
         text:
           data.reply ||
           "Maaf, belum ada balasan dari AI."
+
       };
 
       setMessages((prev) => [
@@ -145,13 +178,13 @@ function Home() {
 
       console.error(error);
 
-      // =========================================================
-      // ❌ ERROR MESSAGE
-      // =========================================================
       const errorMessage = {
+
         sender: "aira",
+
         text:
           "Maaf, server AI sedang mengalami gangguan."
+
       };
 
       setMessages((prev) => [
@@ -164,6 +197,28 @@ function Home() {
       setLoading(false);
 
     }
+
+  }
+
+  // =========================================================
+  // 🌸 MENU REFLEKSI
+  // =========================================================
+  async function handleRefleksi() {
+
+    const userMessage = {
+
+      sender: "user",
+
+      text: "🌸 Saya ingin refleksi diri"
+
+    };
+
+    setMessages((prev) => [
+      ...prev,
+      userMessage
+    ]);
+
+    await sendToAI(REFLEKSI_PROMPT);
 
   }
 
@@ -197,7 +252,7 @@ function Home() {
         }}
       >
 
-        {/* 👨‍💼 ICON PERANGKAT DESA */}
+        {/* 👨‍💼 ICON */}
 
         <div
           style={{
@@ -215,7 +270,7 @@ function Home() {
           👨‍💼
         </div>
 
-        {/* 📝 TEXT HEADER */}
+        {/* 📝 TITLE */}
 
         <div>
 
@@ -235,7 +290,7 @@ function Home() {
               fontSize: "14px"
             }}
           >
-            Pelayanan Masyarakat Desa Mekar Sari Kec. Keluang
+            Pelayanan & Pendampingan Digital Desa
           </p>
 
         </div>
@@ -257,6 +312,8 @@ function Home() {
         }}
       >
 
+        {/* 🏆 KUIS */}
+
         <button
           style={{
             padding: "10px",
@@ -268,16 +325,26 @@ function Home() {
           🏆 Kuis
         </button>
 
+        {/* 🌸 REFLEKSI */}
+
         <button
+
+          onClick={handleRefleksi}
+
           style={{
             padding: "10px",
             borderRadius: "10px",
             border: "none",
-            cursor: "pointer"
+            cursor: "pointer",
+            background: "#ffe4ec",
+            color: "#b30059",
+            fontWeight: "bold"
           }}
         >
           🌸 Refleksi
         </button>
+
+        {/* 📅 LANGKAHKU */}
 
         <button
           style={{
@@ -335,9 +402,7 @@ function Home() {
             }}
           >
 
-            {/* =========================================================
-                ICON AIRA
-            ========================================================= */}
+            {/* 👨‍💼 ICON AIRA */}
 
             {msg.sender === "aira" && (
 
@@ -361,9 +426,7 @@ function Home() {
 
             )}
 
-            {/* =========================================================
-                BUBBLE CHAT
-            ========================================================= */}
+            {/* 💬 BUBBLE */}
 
             <div
               style={{
@@ -401,9 +464,7 @@ function Home() {
           </div>
         ))}
 
-        {/* =========================================================
-            ⏳ LOADING MESSAGE
-        ========================================================= */}
+        {/* ⏳ LOADING */}
 
         {loading && (
 
@@ -480,7 +541,7 @@ function Home() {
 
             if (e.key === "Enter") {
 
-              handleSend();
+              sendToAI();
 
             }
 
@@ -497,7 +558,7 @@ function Home() {
         />
 
         <button
-          onClick={handleSend}
+          onClick={() => sendToAI()}
 
           disabled={loading}
 
