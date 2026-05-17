@@ -127,7 +127,7 @@ function Home() {
         style={{
           background: "#b30000",
           color: "white",
-          padding: "20px"
+          padding: "14px"
         }}
       >
 
