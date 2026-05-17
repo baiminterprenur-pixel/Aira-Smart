@@ -132,11 +132,11 @@ function Home() {
       >
 
         <h1>
-          Aira AI Desa Mekar Sari Kec. Keluang 🇮🇩
+          Aira AI Desa Mekar Sari
         </h1>
 
         <p>
-          Asisten Digital Pelayanan Masyarakat Desa Mekar Sari Kec. Keluang
+          Pelayanan Masyarakat Desa Mekar Sari Kec. Keluang
         </p>
 
       </div>
