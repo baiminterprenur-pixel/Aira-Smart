@@ -1,9 +1,12 @@
 export default async function handler(req, res) {
+
   // =========================================================
   // ✅ HANYA IZINKAN METHOD POST
   // =========================================================
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
   }
 
   // =========================================================
@@ -12,20 +15,29 @@ export default async function handler(req, res) {
   const { message } = req.body;
 
   // =========================================================
+  // ✅ VALIDASI PESAN
+  // =========================================================
+  if (!message || typeof message !== "string") {
+    return res.status(400).json({
+      reply: "Pesan tidak valid."
+    });
+  }
+
+  // =========================================================
   // ✅ API KEY OPENROUTER
   // =========================================================
   const apiKey = process.env.OPENROUTER_API_KEY;
 
   if (!apiKey) {
     return res.status(500).json({
-      reply: "Maaf, saya belum bisa menjawab saat ini."
+      reply: "API Key belum disetting."
     });
   }
 
   // =========================================================
   // ✅ UBAH PESAN MENJADI HURUF KECIL
   // =========================================================
-  const lowerMsg = (message || "").toLowerCase();
+  const lowerMsg = message.toLowerCase().trim();
 
   // =========================================================
   // 🔎 KEYWORDS KHUSUS
@@ -65,24 +77,28 @@ export default async function handler(req, res) {
   // 🔥 CUSTOM RESPONSES
   // =========================================================
   const customResponses = [
+
     // 👋 SAPAAN
     {
       keywords: [
-        "hai selamat malam",
-        "hai selamat pagi",
-        "hai selamat siang",
-        "hai selamat sore",
         "hai",
         "halo",
-        "aira"
+        "aira",
+        "selamat pagi",
+        "selamat siang",
+        "selamat sore",
+        "selamat malam"
       ],
-      reply: `Iya, ada yang bisa saya bantu?`
+
+      reply: `
+Halo 👋<br><br>
+Ada yang bisa saya bantu?
+`
     },
 
     // 📄 SURAT DOMISILI
     {
       keywords: [
-        "aira aku mau buat surat domisili nih",
         "buat surat domisili",
         "mau buat surat domisili",
         "surat domisili",
@@ -92,7 +108,7 @@ export default async function handler(req, res) {
       ],
 
       reply: `
-Oke, silakan isi datamu jika ingin membuat Surat Domisili di link berikut ya :<br><br>
+Oke, silakan isi data pada link berikut untuk membuat Surat Domisili :<br><br>
 
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header" target="_blank" rel="noopener noreferrer">
 📄 Form Surat Domisili
@@ -108,12 +124,11 @@ Oke, silakan isi datamu jika ingin membuat Surat Domisili di link berikut ya :<b
         "surat keterangan usaha",
         "sku",
         "buat sku",
-        "mau buat sku",
         "surat usaha"
       ],
 
       reply: `
-Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha di link berikut ya :<br><br>
+Oke, silakan isi data pada link berikut untuk membuat Surat Keterangan Usaha :<br><br>
 
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwKiGjCUQaAbebp0khcr0eKGYHKwNdnmKfYmMaq_6NLE6yfw/viewform?usp=header" target="_blank" rel="noopener noreferrer">
 📄 Form Surat Keterangan Usaha
@@ -129,48 +144,55 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha di link beriku
         "surat keterangan tidak mampu",
         "sktm",
         "buat sktm",
-        "mau buat sktm",
-        "surat tidak mampu",
-        "surat keterangan miskin",
         "surat miskin",
-        "orang miskin",
-        "keterangan miskin",
-        "buat surat miskin"
+        "surat tidak mampu"
       ],
 
       reply: `
-Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tidak Mampu di link berikut ya :<br><br>
+Oke, silakan isi data pada link berikut untuk membuat Surat Keterangan Tidak Mampu :<br><br>
 
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZwvH39BgqzMZAU8q9qodU1SXsktu8xgVUvA4LLovsb5Wosg/viewform?usp=header" target="_blank" rel="noopener noreferrer">
 📄 Form Surat Keterangan Tidak Mampu
 </a>
 `
     }
+
   ];
 
   // =========================================================
   // 🔎 JAWABAN KHUSUS
   // =========================================================
+
+  // 👨‍💻 Developer
   if (developerKeywords.some((kw) => lowerMsg.includes(kw))) {
+
     return res.status(200).json({
       reply:
-        "Saya dikembangkan oleh Sabtu Ibrahim, yang akrab disapa Baim, seorang perangkat Desa Mekar Sari, Kecamatan Keluang, dengan semangat menghadirkan inovasi dan kemudahan melalui teknologi. 🚀"
+        "Saya dikembangkan oleh Sabtu Ibrahim (Baim), perangkat Desa Mekar Sari, Kecamatan Keluang 🚀"
     });
+
   }
 
+  // 💬 Feedback
   if (feedbackKeywords.some((kw) => lowerMsg.includes(kw))) {
+
     return res.status(200).json({
       reply: `
-Terimakasih atas masukannya. Silakan isi form berikut :<br><br>
+Terimakasih atas masukannya 🙏<br><br>
+
+Silakan isi form berikut :<br><br>
 
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank" rel="noopener noreferrer">
 📄 Form Feedback Desa
 </a>
 `
     });
+
   }
 
+  // 🆘 Bantuan
   if (bantuanKeywords.some((kw) => lowerMsg.includes(kw))) {
+
     return res.status(200).json({
       reply: `
 Silakan isi form bantuan berikut :<br><br>
@@ -180,6 +202,7 @@ Silakan isi form bantuan berikut :<br><br>
 </a>
 `
     });
+
   }
 
   // =========================================================
@@ -187,103 +210,98 @@ Silakan isi form bantuan berikut :<br><br>
   // =========================================================
   for (const item of customResponses) {
 
-    // ✅ PRIORITAS EXACT MATCH
-    const exactMatch = item.keywords.some((kw) =>
+    const matched = item.keywords.some((kw) =>
       lowerMsg.includes(kw.toLowerCase())
     );
 
-    if (exactMatch) {
-      return res.status(200).json({ reply: item.reply });
-    }
-
-    // ✅ FUZZY MATCH
-    const matched = item.keywords.some((kw) => {
-      const words = kw.toLowerCase().split(" ").filter(Boolean);
-
-      // Jika hanya 1 kata
-      if (words.length === 1) {
-        return lowerMsg.includes(words[0]);
-      }
-
-      // Hitung kata yang cocok
-      const matchedWords = words.filter((word) =>
-        lowerMsg.includes(word)
-      );
-
-      // Minimal 80% kata cocok
-      return matchedWords.length >= Math.ceil(words.length * 0.8);
-    });
-
     if (matched) {
-      return res.status(200).json({ reply: item.reply });
+      return res.status(200).json({
+        reply: item.reply
+      });
     }
+
   }
 
   // =========================================================
   // 🤖 DEFAULT AI RESPONSE
   // =========================================================
-  const models = [
-    "poolside/laguna-xs.2:free",
-    "inclusionai/ring-2.6-1t:free",
-    "google/gemma-4-31b-it:free"
-  ];
-
   try {
-    const responses = await Promise.all(
-      models.map(async (model) => {
-        try {
-          const resp = await fetch(
-            "https://openrouter.ai/api/v1/chat/completions",
+
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+          // ✅ MODEL GRATIS MIRIP CHATGPT
+          model: "openai/gpt-oss-20b:free",
+
+          messages: [
             {
-              method: "POST",
-              headers: {
-                Authorization: `Bearer ${apiKey}`,
-                "Content-Type": "application/json"
-              },
-              body: JSON.stringify({
-                model,
-                messages: [
-                  {
-                    role: "system",
-                    content:
-                      "Kamu adalah Aira, AI desa yang ramah. Jawablah menggunakan bahasa Indonesia yang sederhana, sopan, mudah dimengerti, dan tidak terlalu panjang."
-                  },
-                  {
-                    role: "user",
-                    content: message
-                  }
-                ]
-              })
+              role: "system",
+              content: `
+Kamu adalah Aira, AI Desa Mekar Sari yang ramah dan membantu masyarakat.
+
+Aturan:
+- Gunakan bahasa Indonesia sederhana
+- Jawaban singkat dan jelas
+- Sopan dan ramah
+- Jangan terlalu panjang
+- Jika berkaitan dengan surat desa arahkan dengan baik
+`
+            },
+
+            {
+              role: "user",
+              content: message
             }
-          );
+          ]
 
-          const data = await resp.json();
-
-          if (!resp.ok) {
-            console.error(`Model ${model} error:`, data);
-            return "";
-          }
-
-          return data?.choices?.[0]?.message?.content?.trim() || "";
-
-        } catch (err) {
-          console.error(`Fetch error model ${model}:`, err);
-          return "";
-        }
-      })
+        })
+      }
     );
 
-    const combined = responses.filter(Boolean).join(" ");
+    const data = await response.json();
+
+    // =========================================================
+    // ❌ ERROR RESPONSE API
+    // =========================================================
+    if (!response.ok) {
+
+      console.error("OPENROUTER ERROR:", data);
+
+      return res.status(500).json({
+        reply: "Maaf, AI sedang sibuk. Silakan coba lagi."
+      });
+
+    }
+
+    // =========================================================
+    // ✅ HASIL AI
+    // =========================================================
+    const aiReply =
+      data?.choices?.[0]?.message?.content?.trim();
 
     return res.status(200).json({
-      reply: combined || "Maaf, saya belum bisa menjawab sekarang."
+      reply:
+        aiReply ||
+        "Maaf, saya belum bisa menjawab saat ini."
     });
 
   } catch (err) {
-    console.error("ERROR UTAMA:", err);
+
+    console.error("SERVER ERROR:", err);
 
     return res.status(500).json({
       reply: "Server sedang mengalami gangguan."
     });
+
   }
+
 }
