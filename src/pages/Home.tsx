@@ -230,19 +230,19 @@ Aku siap membantu:
     <div
       style={{
         minHeight: "100vh",
-        background: "#f5f5f5",
+        background: "#f0fdf4",
         display: "flex",
         flexDirection: "column"
       }}
     >
 
       {/* =========================================================
-          🔴 HEADER
+          🟢 HEADER
       ========================================================= */}
 
       <div
         style={{
-          background: "#b30000",
+          background: "#15803d",
           color: "white",
           padding: "14px",
           display: "flex",
@@ -252,7 +252,7 @@ Aku siap membantu:
         }}
       >
 
-        {/* 👨‍💼 ICON */}
+        {/* 🤖 ICON */}
 
         <div
           style={{
@@ -267,7 +267,7 @@ Aku siap membantu:
             flexShrink: 0
           }}
         >
-          👨‍💼
+          🤖
         </div>
 
         {/* 📝 TITLE */}
@@ -319,7 +319,10 @@ Aku siap membantu:
             padding: "10px",
             borderRadius: "10px",
             border: "none",
-            cursor: "pointer"
+            cursor: "pointer",
+            background: "#dcfce7",
+            color: "#166534",
+            fontWeight: "bold"
           }}
         >
           🏆 Kuis
@@ -336,25 +339,12 @@ Aku siap membantu:
             borderRadius: "10px",
             border: "none",
             cursor: "pointer",
-            background: "#ffe4ec",
-            color: "#b30059",
+            background: "#dcfce7",
+            color: "#166534",
             fontWeight: "bold"
           }}
         >
           🌸 Refleksi
-        </button>
-
-        {/* 📅 LANGKAHKU */}
-
-        <button
-          style={{
-            padding: "10px",
-            borderRadius: "10px",
-            border: "none",
-            cursor: "pointer"
-          }}
-        >
-          📅 Langkahku
         </button>
 
         {/* 🗑️ HAPUS CHAT */}
@@ -366,8 +356,9 @@ Aku siap membantu:
             borderRadius: "10px",
             border: "none",
             cursor: "pointer",
-            background: "#ff4444",
-            color: "white"
+            background: "#dc2626",
+            color: "white",
+            fontWeight: "bold"
           }}
         >
           🗑️ Hapus Chat
@@ -402,7 +393,7 @@ Aku siap membantu:
             }}
           >
 
-            {/* 👨‍💼 ICON AIRA */}
+            {/* 🤖 ICON AIRA */}
 
             {msg.sender === "aira" && (
 
@@ -411,7 +402,7 @@ Aku siap membantu:
                   width: "40px",
                   height: "40px",
                   borderRadius: "50%",
-                  background: "#b30000",
+                  background: "#15803d",
                   color: "white",
                   display: "flex",
                   alignItems: "center",
@@ -421,7 +412,7 @@ Aku siap membantu:
                   fontSize: "18px"
                 }}
               >
-                👨‍💼
+                🤖
               </div>
 
             )}
@@ -436,7 +427,7 @@ Aku siap membantu:
 
                 background:
                   msg.sender === "user"
-                    ? "#b30000"
+                    ? "#15803d"
                     : "white",
 
                 color:
@@ -482,14 +473,14 @@ Aku siap membantu:
                 width: "40px",
                 height: "40px",
                 borderRadius: "50%",
-                background: "#b30000",
+                background: "#15803d",
                 color: "white",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center"
               }}
             >
-              👨‍💼
+              🤖
             </div>
 
             <div
@@ -564,12 +555,13 @@ Aku siap membantu:
 
           style={{
             padding: "12px 20px",
-            background: "#b30000",
+            background: "#15803d",
             color: "white",
             border: "none",
             borderRadius: "10px",
             cursor: "pointer",
-            opacity: loading ? 0.7 : 1
+            opacity: loading ? 0.7 : 1,
+            fontWeight: "bold"
           }}
         >
           {loading ? "..." : "Kirim"}
