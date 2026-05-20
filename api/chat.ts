@@ -194,7 +194,7 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Pindah Datang di lin
       reply: `
 Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah di link berikut ya :<br><br>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdemKtISdr-g7JGgcuVGUySyypmA2Njjmg-lT-2eRzMaikDVA/viewform?usp=header" target="_blank" rel="noopener noreferrer">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfbTBRQr_Pd-o5UjcKcSH3cyeWDFQTKaaWJjQXGuS8oIBLWeg/viewform?usp=header" target="_blank" rel="noopener noreferrer">
 📄 Form Surat Keterangan Belum Nikah
 </a>
 `
