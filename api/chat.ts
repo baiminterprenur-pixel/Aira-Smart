@@ -95,8 +95,50 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tidak mampu di link 
 📄 Form Surat Keterangan Tidak mampu
 </a>
 `
-    }
+    },
+    // 📄 SURAT KETERANGAN PINDAH
+    {
+      keywords: [
+        "buat surat keterangan pindah","mau buat surat keterangan pindah","surat keterangan pindah",
+        "skpk","buat skpk","mau buat skpk","surat pindah","surat keterangan miskin"
+      ],
+      reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Pindah di link berikut ya :<br><br>
 
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdemKtISdr-g7JGgcuVGUySyypmA2Njjmg-lT-2eRzMaikDVA/viewform?usp=header " target="_blank" rel="noopener noreferrer">
+📄 Form Surat Keterangan Pindah
+</a>
+`
+    },
+    // 📄 SURAT KETERANGAN PINDAH DATANG
+    {
+      keywords: [
+        "buat surat keterangan pindah datang","mau buat surat keterangan pindah datang","surat keterangan pindah datang",
+        "skpd","buat skpd","mau buat skpd","surat pindah datang","surat keterangan miskin"
+      ],
+      reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Pindah datang di link berikut ya :<br><br>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeAjswrbwP-6XZyrXVxJEMZiB7lPXxjGd4ja71M8AbtKfQVHQ/viewform?usp=header" target="_blank" rel="noopener noreferrer">
+📄 Form Surat Keterangan Pindah datang
+</a>
+`
+    },
+
+    // 📄 SURAT KETERANGAN BELUM NIKAH
+    {
+      keywords: [
+        "buat surat keterangan belum nikah","mau buat surat keterangan belum nikah","surat keterangan belum nikah","buat surat keterangan belum menikah","mau buat surat keterangan belum menikah","surat keterangan belum menikah",
+        "skbn","buat skbn","mau buat skbn","surat belum nikah","surat keterangan miskin"
+      ],
+      reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum nikah di link berikut ya :<br><br>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdemKtISdr-g7JGgcuVGUySyypmA2Njjmg-lT-2eRzMaikDVA/viewform?usp=header " target="_blank" rel="noopener noreferrer">
+📄 Form Surat Keterangan Belum nikah
+</a>
+`
+    }
   ];
 
   // =========================================================
@@ -123,7 +165,7 @@ Terimakasih atas masukannya. Silakan isi form berikut:<br><br>
   if (bantuanKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply: `
-Silakan isi form bantuan berikut:<br><br>
+Silakan isi form bantuan berikut ya :<br><br>
 
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header" target="_blank" rel="noopener noreferrer">
 📄 Form Bantuan Desa
