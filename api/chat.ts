@@ -16,15 +16,16 @@ export default async function handler(req, res) {
   // =========================================================
   // ✅ VALIDASI PESAN
   // =========================================================
-  if (!message || !message.trim()) {
-    return res.status(400).json({
-      reply: "Pesan tidak boleh kosong."
-    });
-  }
+if (
+  typeof message !== "string" ||
+  !message.trim() ||
+  message.length > 1000
+) {
+  return res.status(400).json({
+    reply: "Pesan tidak valid."
+  });
+}
 
-  // =========================================================
-  // ✅ UBAH KE HURUF KECIL
-  // =========================================================
   const lowerMsg = message.toLowerCase();
 
   // =========================================================
@@ -34,7 +35,7 @@ export default async function handler(req, res) {
 
   if (!apiKey) {
     return res.status(500).json({
-      reply: "Maaf, sistem AI belum dikonfigurasi."
+      reply: "Maaf, AI masih belum paham."
     });
   }
 
@@ -116,26 +117,23 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha di link beriku
 `
     },
 
-    // 📄 SURAT KETERANGAN TIDAK MAMPU
-    {
-      keywords: [
-        "buat surat keterangan tidak mampu",
-        "mau buat surat keterangan tidak mampu",
-        "surat keterangan tidak mampu",
-        "sktm",
-        "buat sktm",
-        "mau buat sktm",
-        "surat tidak mampu",
-        "surat keterangan miskin"
-      ],
-      reply: `
-Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tidak Mampu di link berikut ya :<br><br>
+  reply: `
+Oke, silakan isi data untuk Surat Keterangan Tidak Mampu Keperluan Sekolah di link berikut:<br><br>
 
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSfZwvH39BgqzMZAU8q9qodU1SXsktu8xgVUvA4LLovsb5Wosg/viewform?usp=header" target="_blank" rel="noopener noreferrer">
-📄 Form Surat Keterangan Tidak Mampu
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfZwvH39BgqzMZAU8q9qodU1SXsktu8xgVUvA4LLovsb5Wosg/viewform?usp=header" target="_blank">
+📄 Form SKTM Sekolah
 </a>
 `
-    },
+},
+
+  reply: `
+Oke, silakan isi data untuk Surat Keterangan Tidak Mampu Umum di link berikut:<br><br>
+
+<a href="LINK_FORM_UMUM" target="_blank">
+📄 Form SKTM Umum
+</a>
+`
+},
 
     // 📄 SURAT KETERANGAN PINDAH
     {
@@ -209,7 +207,6 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah di link 
         "hai selamat sore",
         "hai",
         "halo",
-        "aira"
       ],
       reply: `Halo 👋 Ada yang bisa saya bantu?`
     }
@@ -257,6 +254,57 @@ Silakan isi form bantuan berikut ya:<br><br>
   }
 
   // =========================================================
+  // 📄 PILIHAN SKTM
+  // =========================================================
+  if (
+    lowerMsg.includes("sktm") ||
+    lowerMsg.includes("surat keterangan tidak mampu") ||
+    lowerMsg.includes("surat miskin")
+  ) {
+
+    // SKTM Sekolah
+    if (
+      lowerMsg.includes("sekolah") ||
+      lowerMsg.includes("kuliah") ||
+      lowerMsg.includes("pendidikan")
+    ) {
+      return res.status(200).json({
+        reply: `
+Oke, silakan isi data SKTM Sekolah di link berikut:<br><br>
+
+<a href="LINK_SEKOLAH" target="_blank">
+📄 Form SKTM Sekolah
+</a>
+`
+      });
+    }
+
+    // SKTM Umum
+    if (lowerMsg.includes("umum")) {
+      return res.status(200).json({
+        reply: `
+Oke, silakan isi data SKTM Umum di link berikut:<br><br>
+
+<a href="LINK_UMUM" target="_blank">
+📄 Form SKTM Umum
+</a>
+`
+      });
+    }
+
+    // Jika belum jelas
+    return res.status(200).json({
+      reply: `
+SKTM digunakan untuk keperluan apa ya? 😊<br><br>
+
+1️⃣ Sekolah / Kuliah<br>
+2️⃣ Umum
+`
+    });
+
+  }
+
+  // =========================================================
   // 🔥 AUTO CUSTOM RESPONSES
   // =========================================================
   for (const item of customResponses) {
@@ -293,6 +341,7 @@ Silakan isi form bantuan berikut ya:<br><br>
           "https://openrouter.ai/api/v1/chat/completions",
           {
             method: "POST",
+           signal: AbortSignal.timeout(15000),
 
             headers: {
               Authorization: `Bearer ${apiKey}`,
@@ -300,15 +349,25 @@ Silakan isi form bantuan berikut ya:<br><br>
             },
 
             body: JSON.stringify({
-              model,
-
+  model,
+  max_tokens: 200,
+  temperature: 0.7,
               messages: [
                 {
                   role: "system",
-                  content:
-                    "Kamu adalah Aira, AI desa yang ramah. Jawablah menggunakan bahasa Indonesia yang sederhana, sopan, mudah dimengerti, dan tidak terlalu panjang."
-                },
+ content:
+`Kamu adalah Aira, AI pelayanan Desa Mekar Sari.
 
+Tugasmu membantu masyarakat dengan bahasa Indonesia yang sederhana, sopan, ramah, dan singkat.
+
+Fokus membantu pelayanan desa seperti:
+- surat menyurat,
+- bantuan desa,
+- informasi desa,
+- dan pertanyaan umum masyarakat.
+
+Jika tidak yakin dengan jawaban, arahkan pengguna untuk menghubungi perangkat desa.
+`                },
                 {
                   role: "user",
                   content: message
@@ -362,4 +421,3 @@ Silakan isi form bantuan berikut ya:<br><br>
   }
 
 }
-
