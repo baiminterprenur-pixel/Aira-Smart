@@ -319,8 +319,8 @@ Silakan isi form bantuan berikut ya:<br><br>
   // 🤖 DEFAULT AI RESPONSE
   // =========================================================
   const models = [
-    " deepseek/deepseek-chat-v3-0324:free",
-    " mistralai/mistral-small-3.1-24b-instruct:free",
+    "deepseek/deepseek-chat-v3-0324:free",
+    "mistralai/mistral-small-3.1-24b-instruct:free",
     "google/gemma-4-31b-it:free"
   ];
 
