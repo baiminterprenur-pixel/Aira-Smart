@@ -7,11 +7,12 @@ const customResponses = [
   {
     keywords: [
       "buat surat domisili",
+      "buatkan surat domisili",
       "mau buat surat domisili",
       "surat domisili",
       "domisili",
-      "skdu",
-      "buat skdu"
+      "skd",
+      "buat skd"
     ],
 
     reply: `
@@ -27,6 +28,7 @@ Oke, silakan isi datamu jika ingin membuat Surat Domisili di link berikut ya :<b
   {
     keywords: [
       "buat surat keterangan usaha",
+      "buatkan surat keterangan usaha",
       "mau buat surat keterangan usaha",
       "surat keterangan usaha",
       "sku",
@@ -66,7 +68,9 @@ Oke, silakan isi data untuk Surat Keterangan Tidak Mampu Keperluan Sekolah di li
   {
     keywords: [
       "sktm umum",
-      "surat keterangan tidak mampu umum"
+      "surat keterangan tidak mampu umum",
+      "buatkan surat keterangan tidak mampu umum",
+      "buat surat keterangan tidak mampu"
     ],
 
     reply: `
@@ -84,9 +88,9 @@ Oke, silakan isi data untuk Surat Keterangan Tidak Mampu Umum di link berikut:<b
       "buat surat keterangan pindah",
       "mau buat surat keterangan pindah",
       "surat keterangan pindah",
-      "skpk",
-      "buat skpk",
-      "mau buat skpk",
+      "skp",
+      "buat skp",
+      "mau buat skp",
       "surat pindah"
     ],
 
