@@ -178,7 +178,12 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tidak Mampu di link 
       "sktm umum",
       "surat keterangan tidak mampu umum"
     ],
-    reply: `Belum di koding`
+    reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tidak Mampu Umum di link berikut ya :<br><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeJp-_Hfej7yC_MP1vwtzcnmpDwFOm-valtb5bs0eI9Hkfs8A/viewform?usp=header" target="_blank" rel="noopener noreferrer">
+📄 Form Surat Keterangan Tidak Mampu Umum
+</a>
+`
   },
 
   // 📄 SURAT KETERANGAN PINDAH
