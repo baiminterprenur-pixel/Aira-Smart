@@ -319,8 +319,6 @@ Silakan isi form bantuan berikut ya:<br><br>
   // 🤖 DEFAULT AI RESPONSE
   // =========================================================
   const models = [
-    "poolside/laguna-xs.2:free",
-    "inclusionai/ring-2.6-1t:free",
     "google/gemma-4-31b-it:free"
   ];
 
