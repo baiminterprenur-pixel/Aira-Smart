@@ -1,4 +1,4 @@
-import { allIntents } from "../modules/intents";
+import { allSurat } from "../modules/surat";
 export default async function handler(req, res) {
   // =========================================================
   // ✅ HANYA IZINKAN METHOD POST
@@ -301,9 +301,9 @@ Silakan isi form bantuan berikut ya:<br><br>
     });
   }
 // =========================================================
-// 📂 AUTO MODULE INTENTS
+// 📂 AUTO MODULE SURAT
 // =========================================================
-for (const intent of allIntents) {
+for (const intent of allSurat) {
 
   const matched = intent.keywords.some((kw) =>
     lowerMsg.includes(kw.toLowerCase())
