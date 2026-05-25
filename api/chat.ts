@@ -299,7 +299,24 @@ Silakan isi form bantuan berikut ya:<br><br>
 `
     });
   }
+// =========================================================
+// 📂 AUTO MODULE INTENTS
+// =========================================================
+for (const intent of allIntents) {
 
+  const matched = intent.keywords.some((kw) =>
+    lowerMsg.includes(kw.toLowerCase())
+  );
+
+  if (matched) {
+
+    return res.status(200).json({
+      reply: intent.reply
+    });
+
+  }
+
+}
   // =========================================================
   // 🔥 AUTO CUSTOM RESPONSES
   // =========================================================
