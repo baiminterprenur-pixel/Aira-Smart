@@ -303,21 +303,20 @@ Silakan isi form bantuan berikut ya:<br><br>
 // =========================================================
 // 📂 AUTO MODULE SURAT
 // =========================================================
-const suratList = Object.values(allSurat || {});
-
-for (const intent of suratList) {
-
-  if (!intent?.keywords || !intent?.reply) continue;
+for (const intent of allSurat) {
 
   const matched = intent.keywords.some((kw) =>
     lowerMsg.includes(kw.toLowerCase())
   );
 
   if (matched) {
+
     return res.status(200).json({
       reply: intent.reply
     });
+
   }
+
 }
   // =========================================================
   // 🔥 AUTO CUSTOM RESPONSES
@@ -425,3 +424,4 @@ for (const intent of suratList) {
   }
 
 }
+
