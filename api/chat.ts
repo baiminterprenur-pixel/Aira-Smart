@@ -1,3 +1,4 @@
+import { allIntents } from "../modules/intents";
 export default async function handler(req, res) {
   // =========================================================
   // ✅ HANYA IZINKAN METHOD POST
