@@ -14,3 +14,22 @@ import { suratBepergian } from "./suratBepergian";
 import { suratBPJSKIS } from "./suratBPJSKIS";
 import { suratAktifSekolahKuliah } from "./suratAktifSekolahKuliah";
 import { suratNikah } from "./suratNikah";
+
+export const allSurat = {
+  suratKematian,
+  suratSKCK,
+  suratKelahiran,
+  suratAhliWaris,
+  suratKehilangan,
+  suratPengantarKTP,
+  suratPengantarKK,
+  suratIzinKeramaian,
+  suratJandaDuda,
+  suratPenghasilanOrangTua,
+  suratKeteranganTanah,
+  suratBedaNama,
+  suratBepergian,
+  suratBPJSKIS,
+  suratAktifSekolahKuliah,
+  suratNikah,
+};
