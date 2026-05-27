@@ -3,7 +3,7 @@
 // File: modules/intents/suratBPJSKIS.ts
 // ======================================================
 
-export const suratBPJSKIS = {
+export default {
 
   keywords: [
     "bpjs",
