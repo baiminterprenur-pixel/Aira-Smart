@@ -1,3 +1,4 @@
+import { allSurat } from "../modules/surat";
 export default async function handler(req, res) {
   // =========================================================
   // ✅ HANYA IZINKAN METHOD POST
@@ -299,7 +300,25 @@ Silakan isi form bantuan berikut ya:<br><br>
 `
     });
   }
+// =========================================================
+// 📂 AUTO MODULE SURAT
+// =========================================================
+const suratList = Object.values(allSurat || {});
 
+for (const intent of suratList) {
+
+  if (!intent?.keywords || !intent?.reply) continue;
+
+  const matched = intent.keywords.some((kw) =>
+    lowerMsg.includes(kw.toLowerCase())
+  );
+
+  if (matched) {
+    return res.status(200).json({
+      reply: intent.reply
+    });
+  }
+}
   // =========================================================
   // 🔥 AUTO CUSTOM RESPONSES
   // =========================================================
@@ -406,4 +425,3 @@ Silakan isi form bantuan berikut ya:<br><br>
   }
 
 }
-
