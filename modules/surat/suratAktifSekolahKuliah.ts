@@ -3,7 +3,7 @@
 // File: modules/intents/suratAktifSekolahKuliah.ts
 // ======================================================
 
-export const suratAktifSekolahKuliah = {
+export default {
 
   keywords: [
     "surat aktif sekolah",
