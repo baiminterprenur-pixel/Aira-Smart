@@ -3,7 +3,7 @@
 // File: modules/intents/suratAhliWaris.ts
 // ======================================================
 
-export const suratAhliWaris = {
+export default {
 
   keywords: [
     "surat ahli waris",
