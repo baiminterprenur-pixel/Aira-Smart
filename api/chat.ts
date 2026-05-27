@@ -1,4 +1,4 @@
-import { allSurat } from "../modules/surat";
+import allSurat from “../modules/surat”;
 export default async function handler(req, res) {
   // =========================================================
   // ✅ HANYA IZINKAN METHOD POST
