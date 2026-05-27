@@ -3,7 +3,7 @@
 // File: modules/intents/suratBedaNama.ts
 // ======================================================
 
-export const suratBedaNama = {
+export default {
 
   keywords: [
     "surat beda nama",
