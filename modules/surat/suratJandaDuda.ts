@@ -3,7 +3,7 @@
 // File: modules/intents/suratJandaDuda.ts
 // ======================================================
 
-export const suratJandaDuda = {
+export default {
 
   keywords: [
     "surat janda",
