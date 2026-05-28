@@ -1,14 +1,14 @@
-import allSurat from “../modules/surat”;
-export default async function handler(req, res) {
-  // =========================================================
-  // ✅ HANYA IZINKAN METHOD POST
-  // =========================================================
-  if (req.method !== "POST") {
-    return res.status(405).json({
-      error: "Method not allowed"
-    });
-  }
+import allSurat from "../modules/surat";
 
+// Tambahkan interface untuk intent surat
+interface SuratIntent {
+  keywords: string[];
+  reply: string;
+}
+  // =========================================================
+  // ✅ AMBIL PESAN USER
+  // =========================================================
+  export default async function handler(req, res) {
   // =========================================================
   // ✅ AMBIL PESAN USER
   // =========================================================
@@ -303,7 +303,7 @@ Silakan isi form bantuan berikut ya:<br><br>
 // =========================================================
 // 📂 AUTO MODULE SURAT
 // =========================================================
-const suratList = Object.values(allSurat || {});
+const suratList: SuratIntent[] = Object.values(allSurat || {}) as SuratIntent[];
 
 for (const intent of suratList) {
 
