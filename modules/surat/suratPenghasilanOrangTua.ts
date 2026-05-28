@@ -3,7 +3,7 @@
 // File: modules/intents/suratPenghasilanOrangTua.ts
 // ======================================================
 
-export const suratPenghasilanOrangTua = {
+export default {
 
   keywords: [
     "surat penghasilan orang tua",
