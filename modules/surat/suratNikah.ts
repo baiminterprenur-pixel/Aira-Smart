@@ -1,4 +1,4 @@
-export const suratNikah = {
+export default {
   keywords: [
     "surat nikah",
     "surat pengantar nikah",
