@@ -85,11 +85,41 @@ const customResponses = [
   `
 },
 
-  // 📄 SURAT KETERANGAN BELUM NIKAH
-  {
-    keywords: ["buat surat keterangan belum nikah","mau buat surat keterangan belum nikah","surat keterangan belum nikah","buat surat keterangan belum menikah","mau buat surat keterangan belum menikah","surat keterangan belum menikah","skbn","buat skbn","mau buat skbn","surat belum nikah"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah.<br><br>📄 Form Surat Keterangan Belum Nikah : Masih Kosong`
-  },
+// 📄 SURAT KETERANGAN BELUM NIKAH
+{
+  keywords: [
+    "buat surat keterangan belum nikah",
+    "mau buat surat keterangan belum nikah",
+    "surat keterangan belum nikah",
+    "buat surat keterangan belum menikah",
+    "mau buat surat keterangan belum menikah",
+    "surat keterangan belum menikah",
+    "skbn",
+    "buat skbn",
+    "mau buat skbn",
+    "surat belum nikah"
+  ],
+
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah.<br><br>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSfbTBRQr_Pd-o5UjcKcSH3cyeWDFQTKaaWJjQXGuS8oIBLWeg/viewform?usp=header"
+    target="_blank"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Keterangan Belum Nikah
+  </a>
+  `
+},
 
   // 📄 SURAT KETERANGAN PINDAH
   {
