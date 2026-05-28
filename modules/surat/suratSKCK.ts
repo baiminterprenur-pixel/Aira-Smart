@@ -3,7 +3,7 @@
 // File: modules/intents/suratSKCK.ts
 // ======================================================
 
-export const suratSKCK = {
+export default {
 
   keywords: [
     "skck",
