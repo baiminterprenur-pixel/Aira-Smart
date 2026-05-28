@@ -75,8 +75,31 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply: "Maaf, jenis surat tersebut belum tersedia di sistem Aira 🙏" });
   }
 
-  // 🤖 DEFAULT AI RESPONSE
-  const models = ["deepseek/deepseek-chat:free","google/gemma-3-27b-it:free","mistralai/mistral-7b-instruct:free"];
+// 🤖 DEFAULT AI RESPONSE
+const models = [
+
+  // 🔥 Router otomatis gratis
+  "openrouter/free",
+
+  // 🔥 DeepSeek
+  "deepseek/deepseek-chat:free",
+
+  // 🔥 Google Gemma
+  "google/gemma-3-27b-it:free",
+
+  // 🔥 Mistral
+  "mistralai/mistral-7b-instruct:free",
+
+  // 🔥 Meta Llama
+  "meta-llama/llama-3.3-70b-instruct:free",
+
+  // 🔥 Qwen
+  "qwen/qwen3-32b:free",
+
+  // 🔥 Microsoft Phi
+  "microsoft/phi-3-medium-128k-instruct:free"
+
+];
   try {
     for (const model of models) {
       try {
