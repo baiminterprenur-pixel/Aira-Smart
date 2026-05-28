@@ -246,6 +246,293 @@ Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah di link 
 `
   },
 
+// 📄 SURAT KETERANGAN KEMATIAN
+{
+  keywords: [
+    "surat kematian",
+    "akta kematian",
+    "orang meninggal"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kematian di link berikut ya :<br><br>
+
+📄 Form Surat Kematian : Masih Kosong
+`
+},
+
+// 📄 SURAT KETERANGAN KELAHIRAN
+{
+  keywords: [
+    "surat kelahiran",
+    "akta lahir",
+    "bayi lahir"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kelahiran di link berikut ya :<br><br>
+
+📄 Form Surat Kelahiran : Masih Kosong
+`
+},
+
+// 📄 SURAT AHLI WARIS
+{
+  keywords: [
+    "surat ahli waris",
+    "ahli waris",
+    "warisan"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Ahli Waris di link berikut ya :<br><br>
+
+📄 Form Surat Ahli Waris : Masih Kosong
+`
+},
+
+// 📄 SURAT PENGANTAR KTP
+{
+  keywords: [
+    "pengantar ktp",
+    "buat ktp",
+    "ktp baru",
+    "e-ktp"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pengantar KTP di link berikut ya :<br><br>
+
+📄 Form Pengantar KTP : Masih Kosong
+`
+},
+
+// 📄 SURAT PENGANTAR KK
+{
+  keywords: [
+    "pengantar kk",
+    "buat kk",
+    "kartu keluarga"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pengantar KK di link berikut ya :<br><br>
+
+📄 Form Pengantar KK : Masih Kosong
+`
+},
+
+// 📄 SURAT PENGANTAR SKCK
+{
+  keywords: [
+    "skck",
+    "pengantar skck",
+    "buat skck"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pengantar SKCK di link berikut ya :<br><br>
+
+📄 Form Pengantar SKCK : Masih Kosong
+`
+},
+
+// 📄 SURAT KEHILANGAN
+{
+  keywords: [
+    "surat kehilangan",
+    "kehilangan ktp",
+    "kehilangan kk"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kehilangan di link berikut ya :<br><br>
+
+📄 Form Surat Kehilangan : Masih Kosong
+`
+},
+
+// 📄 SURAT IZIN KERAMAIAN
+{
+  keywords: [
+    "izin keramaian",
+    "surat izin acara",
+    "izin hiburan"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Izin Keramaian di link berikut ya :<br><br>
+
+📄 Form Surat Izin Keramaian : Masih Kosong
+`
+},
+
+// 📄 SURAT IZIN USAHA
+{
+  keywords: [
+    "izin usaha",
+    "surat izin usaha",
+    "usaha baru"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Izin Usaha di link berikut ya :<br><br>
+
+📄 Form Surat Izin Usaha : Masih Kosong
+`
+},
+
+// 📄 SURAT REKOMENDASI
+{
+  keywords: [
+    "surat rekomendasi",
+    "buat rekomendasi"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Rekomendasi di link berikut ya :<br><br>
+
+📄 Form Surat Rekomendasi : Masih Kosong
+`
+},
+
+// 📄 SURAT DISPENSASI NIKAH
+{
+  keywords: [
+    "dispensasi nikah",
+    "surat dispensasi"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Dispensasi Nikah di link berikut ya :<br><br>
+
+📄 Form Surat Dispensasi Nikah : Masih Kosong
+`
+},
+
+// 📄 SURAT IZIN ORANG TUA
+{
+  keywords: [
+    "izin orang tua",
+    "surat izin orang tua"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Izin Orang Tua di link berikut ya :<br><br>
+
+📄 Form Surat Izin Orang Tua : Masih Kosong
+`
+},
+
+// 📄 SURAT PERNYATAAN
+{
+  keywords: [
+    "surat pernyataan",
+    "buat surat pernyataan"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pernyataan di link berikut ya :<br><br>
+
+📄 Form Surat Pernyataan : Masih Kosong
+`
+},
+
+// 📄 SURAT JAMINAN
+{
+  keywords: [
+    "surat jaminan",
+    "buat surat jaminan"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Jaminan di link berikut ya :<br><br>
+
+📄 Form Surat Jaminan : Masih Kosong
+`
+},
+
+// 📄 SURAT KETERANGAN SEHAT
+{
+  keywords: [
+    "surat sehat",
+    "keterangan sehat"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Sehat di link berikut ya :<br><br>
+
+📄 Form Surat Keterangan Sehat : Masih Kosong
+`
+},
+
+// 📄 SURAT PENGHASILAN
+{
+  keywords: [
+    "surat penghasilan",
+    "keterangan penghasilan"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Penghasilan di link berikut ya :<br><br>
+
+📄 Form Surat Penghasilan : Masih Kosong
+`
+},
+
+// 📄 SURAT NIKAH
+{
+  keywords: [
+    "surat nikah",
+    "pengantar nikah",
+    "nikah"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pengantar Nikah di link berikut ya :<br><br>
+
+📄 Form Surat Nikah : Masih Kosong
+`
+},
+
+// 📄 SURAT CERAI
+{
+  keywords: [
+    "surat cerai",
+    "keterangan cerai"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Cerai di link berikut ya :<br><br>
+
+📄 Form Surat Cerai : Masih Kosong
+`
+},
+
+// 📄 SURAT TANAH
+{
+  keywords: [
+    "surat tanah",
+    "keterangan tanah",
+    "sporadik"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Tanah di link berikut ya :<br><br>
+
+📄 Form Surat Tanah : Masih Kosong
+`
+},
+
+// 📄 SURAT HIBAH
+{
+  keywords: [
+    "surat hibah",
+    "hibah tanah",
+    "hibah rumah"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Hibah di link berikut ya :<br><br>
+
+📄 Form Surat Hibah : Masih Kosong
+`
+},
+
+// 📄 SURAT KUASA
+{
+  keywords: [
+    "surat kuasa",
+    "buat surat kuasa"
+  ],
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Kuasa di link berikut ya :<br><br>
+
+📄 Form Surat Kuasa : Masih Kosong
+`
+},
+
+
   // 👋 SAPAAN
   {
     keywords: [
