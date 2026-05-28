@@ -3,7 +3,7 @@
 // File: modules/intents/suratPengantarKTP.ts
 // ======================================================
 
-export const suratPengantarKTP = {
+export default {
 
   keywords: [
     "surat pengantar ktp",
