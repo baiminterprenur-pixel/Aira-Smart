@@ -3,7 +3,7 @@
 // File: modules/intents/suratKelahiran.ts
 // ======================================================
 
-export const suratKelahiran = {
+export default {
 
   keywords: [
     "surat kelahiran",
