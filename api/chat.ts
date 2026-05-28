@@ -84,7 +84,6 @@ export default async function handler(req, res) {
   // 🔥 CUSTOM RESPONSES (rapi, tanpa duplikat)
   // =========================================================
   const customResponses = [
-    // 📄 SURAT DOMISILI
     {
       keywords: [
         "buat surat domisili",
@@ -101,8 +100,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 📄 SURAT KETERANGAN USAHA
     {
       keywords: [
         "buat surat keterangan usaha",
@@ -121,8 +118,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 📄 SKTM SEKOLAH
     {
       keywords: [
         "sktm sekolah",
@@ -137,8 +132,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 📄 SKTM UMUM
     {
       keywords: [
         "sktm umum",
@@ -151,8 +144,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 📄 SURAT KETERANGAN PINDAH
     {
       keywords: [
         "buat surat keterangan pindah",
@@ -170,8 +161,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 📄 SURAT KETERANGAN PINDAH DATANG
     {
       keywords: [
         "buat surat keterangan pindah datang",
@@ -189,8 +178,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 📄 SURAT KETERANGAN BELUM NIKAH
     {
       keywords: [
         "buat surat keterangan belum nikah",
@@ -211,8 +198,6 @@ export default async function handler(req, res) {
       </a>
       `
     },
-
-    // 👋 SAPAAN
     {
       keywords: [
         "hai selamat malam",
@@ -232,5 +217,14 @@ export default async function handler(req, res) {
   if (developerKeywords.some((kw) => lowerMsg.includes(kw))) {
     return res.status(200).json({
       reply:
-        "Saya dikembangkan oleh Sabtu Ibrahim, yang akrab disapa
+        "Saya dikembangkan oleh Sabtu Ibrahim, yang akrab disapa Baim, seorang perangkat Desa Mekar Sari, Kecamatan Keluang, dengan semangat menghadirkan inovasi dan kemudahan melalui teknologi. 🚀"
+    });
+  }
+
+  if (feedbackKeywords.some((kw) => lowerMsg.includes(kw))) {
+    return res.status(200).json({
+      reply: `
+      Terimakasih atas masukannya 🙏<br><br>
+      Silakan isi form berikut ya:<br><br>
+      <a href="https://docs.google.com/forms/d/e/1FAIp
 
