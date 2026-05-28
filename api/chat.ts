@@ -22,12 +22,37 @@ export default async function handler(req, res) {
 
 const customResponses = [
 
-  // 📄 SURAT DOMISILI
-  {
-    keywords: ["buat surat domisili","mau buat surat domisili","surat domisili","domisili","skdu","buat skdu"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Domisili.<br><br>📄 Form Surat Domisili : Masih Kosong`
-  },
+// 📄 SURAT DOMISILI
+{
+  keywords: [
+    "buat surat domisili",
+    "mau buat surat domisili",
+    "surat domisili",
+    "domisili",
+    "skdu",
+    "buat skdu"
+  ],
 
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat Surat Domisili.<br><br>
+
+  <a 
+    href="https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header" 
+    target="_blank"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Domisili
+  </a>
+  `
+},
   // 📄 SURAT KETERANGAN USAHA
   {
     keywords: ["buat surat keterangan usaha","mau buat surat keterangan usaha","surat keterangan usaha","sku","buat sku","surat usaha"],
