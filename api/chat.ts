@@ -53,11 +53,37 @@ const customResponses = [
   </a>
   `
 },
-  // 📄 SURAT KETERANGAN USAHA
-  {
-    keywords: ["buat surat keterangan usaha","mau buat surat keterangan usaha","surat keterangan usaha","sku","buat sku","surat usaha"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha.<br><br>📄 Form Surat Keterangan Usaha : Masih Kosong`
-  },
+// 📄 SURAT KETERANGAN USAHA
+{
+  keywords: [
+    "buat surat keterangan usaha",
+    "mau buat surat keterangan usaha",
+    "surat keterangan usaha",
+    "sku",
+    "buat sku",
+    "surat usaha"
+  ],
+
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha.<br><br>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSfwKiGjCUQaAbebp0khcr0eKGYHKwNdnmKfYmMaq_6NLE6yfw/viewform?usp=header"
+    target="_blank"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Keterangan Usaha
+  </a>
+  `
+},
 
   // 📄 SURAT KETERANGAN BELUM NIKAH
   {
