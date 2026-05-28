@@ -3,7 +3,7 @@
 // File: modules/intents/suratKeteranganTanah.ts
 // ======================================================
 
-export const suratKeteranganTanah = {
+export default {
 
   keywords: [
     "surat tanah",
