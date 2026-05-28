@@ -3,7 +3,7 @@
 // File: modules/intents/suratBepergian.ts
 // ======================================================
 
-export const suratBepergian = {
+export default {
 
   keywords: [
     "surat bepergian",
