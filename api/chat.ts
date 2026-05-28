@@ -85,45 +85,6 @@ const customResponses = [
   `
 },
 
-// 📄 PENGAJUAN BANTUAN WARGA
-{
-  keywords: [
-    "ajukan bantuan",
-    "pengajuan bantuan",
-    "minta bantuan",
-    "usul bantuan",
-    "mengusulkan bantuan",
-    "daftar bantuan",
-    "ingin menerima bantuan",
-    "permohonan bantuan",
-    "bantuan warga",
-    "bantuan sosial",
-    "bansos",
-    "daftar bansos",
-    "pengajuan bansos"
-  ],
-
-  reply: `
-  Oke, silakan isi data pengajuan bantuan melalui form berikut:<br><br>
-
-  <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSe4S_TwmGhtrXz4x9o3vuV9hSfqWgyAVGAT0iC_dORMbWr-Ug/viewform?usp=header"
-    target="_blank"
-    style="
-      display:inline-block;
-      background:#16a34a;
-      color:white;
-      padding:10px 16px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-    "
-  >
-    📄 Isi Form Pengajuan Bantuan
-  </a>
-  `
-},
-
 // 📄 SURAT KETERANGAN BELUM NIKAH
 {
   keywords: [
@@ -275,24 +236,59 @@ const customResponses = [
 ];
 
   // 🔎 JAWABAN KHUSUS
-  if (developerKeywords.some((kw) => cleanMsg.includes(kw))) {
-    return res.status(200).json({
-      reply: "Saya dikembangkan oleh Sabtu Ibrahim, yang akrab disapa Baim, perangkat Desa Mekar Sari 🚀"
-    });
-  }
+if (developerKeywords.some((kw) => cleanMsg.includes(kw))) {
+  return res.status(200).json({
+    reply: "Saya dikembangkan oleh Sabtu Ibrahim, yang akrab disapa Baim, perangkat Desa Mekar Sari 🚀"
+  });
+}
 
-  if (feedbackKeywords.some((kw) => cleanMsg.includes(kw))) {
-    return res.status(200).json({
-      reply: `Terimakasih atas masukannya 🙏<br><br>📄 Form Feedback Desa : Masih Kosong`
-    });
-  }
+if (feedbackKeywords.some((kw) => cleanMsg.includes(kw))) {
+  return res.status(200).json({
+    reply: `
+    Terimakasih atas masukannya 🙏<br><br>
 
-  if (bantuanKeywords.some((kw) => cleanMsg.includes(kw))) {
-    return res.status(200).json({
-      reply: `Silakan isi form bantuan berikut ya:<br><br>📄 Form Bantuan Desa : Masih Kosong`
-    });
-  }
+    <a
+      href="https://docs.google.com/forms/"
+      target="_blank"
+      style="
+        display:inline-block;
+        background:#16a34a;
+        color:white;
+        padding:10px 16px;
+        border-radius:8px;
+        text-decoration:none;
+        font-weight:bold;
+      "
+    >
+      📄 Isi Form Feedback Desa
+    </a>
+    `
+  });
+}
 
+if (bantuanKeywords.some((kw) => cleanMsg.includes(kw))) {
+  return res.status(200).json({
+    reply: `
+    Oke, silakan isi form bantuan berikut ya:<br><br>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSe4S_TwmGhtrXz4x9o3vuV9hSfqWgyAVGAT0iC_dORMbWr-Ug/viewform?usp=header"
+      target="_blank"
+      style="
+        display:inline-block;
+        background:#16a34a;
+        color:white;
+        padding:10px 16px;
+        border-radius:8px;
+        text-decoration:none;
+        font-weight:bold;
+      "
+    >
+      📄 Isi Form Pengajuan Bantuan
+    </a>
+    `
+  });
+}
   // 🔥 AUTO CUSTOM RESPONSES
   for (const item of customResponses) {
     const matched = item.keywords.some((kw) => cleanMsg.includes(kw.toLowerCase()));
