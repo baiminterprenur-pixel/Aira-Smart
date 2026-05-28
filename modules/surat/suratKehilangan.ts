@@ -3,7 +3,7 @@
 // File: modules/intents/suratKehilangan.ts
 // ======================================================
 
-export const suratKehilangan = {
+export default {
 
   keywords: [
     "surat kehilangan",
