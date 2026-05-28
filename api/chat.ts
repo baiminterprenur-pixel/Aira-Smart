@@ -163,11 +163,33 @@ const customResponses = [
   `
 },
 
-  // 📄 SKTM UMUM
-  {
-    keywords: ["sktm umum","surat keterangan tidak mampu umum"],
-    reply: `Oke, silakan isi datamu jika ingin membuat SKTM Umum.<br><br>📄 Form SKTM Umum : Masih Kosong`
-  },
+// 📄 SKTM UMUM
+{
+  keywords: [
+    "sktm umum",
+    "surat keterangan tidak mampu umum"
+  ],
+
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat SKTM Umum.<br><br>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSeJp-_Hfej7yC_MP1vwtzcnmpDwFOm-valtb5bs0eI9Hkfs8A/viewform?usp=header"
+    target="_blank"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form SKTM Umum
+  </a>
+  `
+},
 
   // 📄 SURAT KEMATIAN
   {
