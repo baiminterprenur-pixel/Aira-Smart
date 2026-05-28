@@ -80,9 +80,22 @@ const customResponses = [
   // 📄 SKTM SEKOLAH
   {
     keywords: ["sktm sekolah","surat keterangan tidak mampu sekolah","sktm pendidikan","sktm kuliah"],
-    reply: `Oke, silakan isi datamu jika ingin membuat SKTM Sekolah.<br><br>📄 Form SKTM Sekolah : Masih Kosong`
-  },
-
+    reply: `Oke, silakan isi datamu jika ingin membuat SKTM Sekolah.<br><br>📄 Form SKTM Sekolah : "https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header" 
+target="_blank"
+style="
+display:inline-block;
+background:#16a34a;
+color:white;
+padding:10px 16px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+"
+>
+📄 Isi Form Surat Keterangan Tidak Mampu Sekolah
+</a>
+`
+},
   // 📄 SKTM UMUM
   {
     keywords: ["sktm umum","surat keterangan tidak mampu umum"],
