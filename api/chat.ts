@@ -121,18 +121,6 @@ const customResponses = [
   `
 },
 
-  // 📄 SURAT KETERANGAN PINDAH
-  {
-    keywords: ["buat surat keterangan pindah","mau buat surat keterangan pindah","surat keterangan pindah","skpk","buat skpk","surat pindah"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Pindah.<br><br>📄 Form Surat Keterangan Pindah : Masih Kosong`
-  },
-
-  // 📄 SURAT KETERANGAN PINDAH DATANG
-  {
-    keywords: ["buat surat keterangan pindah datang","mau buat surat keterangan pindah datang","surat keterangan pindah datang","skpd","buat skpd","surat pindah datang"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Pindah Datang.<br><br>📄 Form Surat Keterangan Pindah Datang : Masih Kosong`
-  },
-
 // 📄 SKTM SEKOLAH
 {
   keywords: [
@@ -206,7 +194,7 @@ const customResponses = [
   Oke, silakan isi datamu jika ingin membuat Surat Pindah Datang.<br><br>
 
   <a
-    href="MASUKKAN_LINK_GOOGLE_FORM_DISINI"
+    href="https://docs.google.com/forms/d/e/1FAIpQLSeAjswrbwP-6XZyrXVxJEMZiB7lPXxjGd4ja71M8AbtKfQVHQ/viewform?usp=header"
     target="_blank"
     rel="noopener noreferrer"
     style="
