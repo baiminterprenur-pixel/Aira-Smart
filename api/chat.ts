@@ -248,11 +248,13 @@ const customResponses = [
 {
   keywords: [
     "surat kematian",
+    "surat keterangan kematian",
     "akta kematian",
     "orang meninggal",
     "surat orang meninggal",
     "buat surat kematian",
-    "mau buat surat kematian"
+    "mau buat surat kematian",
+    "mau buat surat keterangan kematian"
   ],
 
   reply: `
