@@ -248,7 +248,7 @@ if (feedbackKeywords.some((kw) => cleanMsg.includes(kw))) {
     Terimakasih atas masukannya 🙏<br><br>
 
     <a
-      href="https://docs.google.com/forms/"
+      href=" https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header"
       target="_blank"
       style="
         display:inline-block;
