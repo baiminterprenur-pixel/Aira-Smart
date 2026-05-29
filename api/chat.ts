@@ -244,12 +244,38 @@ const customResponses = [
   </a>
   `
 },
-  // 📄 SURAT KEMATIAN
-  {
-    keywords: ["surat kematian","akta kematian","orang meninggal"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kematian.<br><br>📄 Form Surat Kematian : Masih Kosong`
-  },
+// 📄 SURAT KEMATIAN
+{
+  keywords: [
+    "surat kematian",
+    "akta kematian",
+    "orang meninggal",
+    "surat orang meninggal",
+    "buat surat kematian",
+    "mau buat surat kematian"
+  ],
 
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kematian.<br><br>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSdaw5kStb404VTxHk12sbImiQ0CvpXRjt3U-gTj5qKgE5N6hg/viewform?usp=publish-editor"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Kematian
+  </a>
+  `
+},
   // 📄 SURAT KELAHIRAN
   {
     keywords: ["surat kelahiran","akta lahir","bayi lahir"],
