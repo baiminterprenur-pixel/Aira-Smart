@@ -190,7 +190,72 @@ const customResponses = [
   </a>
   `
 },
+// 📄 SURAT PINDAH DATANG
+{
+  keywords: [
+    "surat pindah datang",
+    "buat surat pindah datang",
+    "mau buat surat pindah datang",
+    "surat keterangan pindah datang",
+    "pindah datang",
+    "skpd",
+    "buat skpd"
+  ],
 
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat Surat Pindah Datang.<br><br>
+
+  <a
+    href="MASUKKAN_LINK_GOOGLE_FORM_DISINI"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Pindah Datang
+  </a>
+  `
+},
+// 📄 SURAT PINDAH KELUAR
+{
+  keywords: [
+    "surat pindah keluar",
+    "buat surat pindah keluar",
+    "mau buat surat pindah keluar",
+    "surat keterangan pindah keluar",
+    "pindah keluar",
+    "skpk",
+    "buat skpk"
+  ],
+
+  reply: `
+  Oke, silakan isi datamu jika ingin membuat Surat Pindah Keluar.<br><br>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSdemKtISdr-g7JGgcuVGUySyypmA2Njjmg-lT-2eRzMaikDVA/viewform?usp=header"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Pindah Keluar
+  </a>
+  `
+},
   // 📄 SURAT KEMATIAN
   {
     keywords: ["surat kematian","akta kematian","orang meninggal"],
