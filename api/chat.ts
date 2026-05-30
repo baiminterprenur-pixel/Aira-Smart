@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ reply: "Maaf, sistem AI belum dikonfigurasi." });
+    return res.status(500).json({ reply: "Maaf, saya belum bisa memahami. Saya masih belajar." });
   }
 
   const developerKeywords = ["siapa pengembang","siapa yang buat kamu","siapa penciptamu","siapa yang bikin kamu","siapa yang ciptakan kamu","siapa yang program kamu","pengembangmu siapa","dibuat oleh siapa","developer kamu"];
@@ -34,9 +34,13 @@ const customResponses = [
   ],
 
   reply: `
-  Oke, silakan isi datamu jika ingin membuat Surat Domisili.<br><br>
+Oke, silakan isi datamu jika ingin membuat Surat Domisili.<br><br>
 
-  <a 
+📌 Pastikan Anda telah menyiapkan KTP, Kartu Keluarga (KK) sebelum mengisi formulir.
+
+<br><br>
+
+<a 
     href="https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header" 
     target="_blank"
     style="
@@ -64,10 +68,11 @@ const customResponses = [
     "surat usaha"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha.<br><br>
-
-  <a
+reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Usaha.
+📌 Sebelum mengisi formulir, pastikan Anda telah menyiapkan: Ktp dan Jenis Usaha
+Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi formulir.
+<a
     href="https://docs.google.com/forms/d/e/1FAIpQLSfwKiGjCUQaAbebp0khcr0eKGYHKwNdnmKfYmMaq_6NLE6yfw/viewform?usp=header"
     target="_blank"
     style="
@@ -100,10 +105,11 @@ const customResponses = [
     "surat belum nikah"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah.<br><br>
-
-  <a
+reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Belum Nikah.
+📌 Sebelum mengisi formulir, pastikan Anda telah menyiapkan: KTP dan Kartu Keluarga
+Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi formulir.
+<a
     href="https://docs.google.com/forms/d/e/1FAIpQLSfbTBRQr_Pd-o5UjcKcSH3cyeWDFQTKaaWJjQXGuS8oIBLWeg/viewform?usp=header"
     target="_blank"
     style="
@@ -130,11 +136,12 @@ const customResponses = [
     "sktm kuliah"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat SKTM Sekolah.<br><br>
+reply: `
+Oke, silakan isi datamu jika ingin membuat SKTM Sekolah.<br><br>
 
-  <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSfPTARAcNT7gh4F8I4mFy2S7BL6hkQiFQNx5KhhNTSTDTaM9A/viewform?usp=header"
+Pastikan KTP, KK, dan data siswa/mahasiswa sudah disiapkan sebelum mengisi formulir.<br><br>
+
+<a    href="https://docs.google.com/forms/d/e/1FAIpQLSfZwvH39BgqzMZAU8q9qodU1SXsktu8xgVUvA4LLovsb5Wosg/viewform?usp=header"
     target="_blank"
     style="
       display:inline-block;
@@ -158,10 +165,12 @@ const customResponses = [
     "surat keterangan tidak mampu umum"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat SKTM Umum.<br><br>
+reply: `
+Oke, silakan isi datamu jika ingin membuat SKTM Umum.<br><br>
 
-  <a
+Pastikan KTP dan KK telah disiapkan sebelum mengisi formulir.<br><br>
+
+<a
     href="https://docs.google.com/forms/d/e/1FAIpQLSeJp-_Hfej7yC_MP1vwtzcnmpDwFOm-valtb5bs0eI9Hkfs8A/viewform?usp=header"
     target="_blank"
     style="
@@ -190,10 +199,12 @@ const customResponses = [
     "buat skpd"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat Surat Pindah Datang.<br><br>
+reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pindah Datang.<br><br>
 
-  <a
+Pastikan KTP, KK, dan Surat Pindah dari daerah asal telah disiapkan sebelum mengisi formulir.<br><br>
+
+<a
     href="https://docs.google.com/forms/d/e/1FAIpQLSeAjswrbwP-6XZyrXVxJEMZiB7lPXxjGd4ja71M8AbtKfQVHQ/viewform?usp=header"
     target="_blank"
     rel="noopener noreferrer"
@@ -223,10 +234,12 @@ const customResponses = [
     "buat skpk"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat Surat Pindah Keluar.<br><br>
+reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Pindah Keluar.<br><br>
 
-  <a
+Pastikan KTP, KK, dan alamat tujuan pindah telah disiapkan sebelum mengisi formulir.<br><br>
+
+<a
     href="https://docs.google.com/forms/d/e/1FAIpQLSdemKtISdr-g7JGgcuVGUySyypmA2Njjmg-lT-2eRzMaikDVA/viewform?usp=header"
     target="_blank"
     rel="noopener noreferrer"
@@ -257,10 +270,12 @@ const customResponses = [
     "mau buat surat keterangan kematian"
   ],
 
-  reply: `
-  Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kematian.<br><br>
+reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kematian.<br><br>
 
-  <a
+Pastikan KTP dan KK almarhum/almarhumah serta data pelapor telah disiapkan sebelum mengisi formulir.<br><br>
+
+<a
     href="https://docs.google.com/forms/d/e/1FAIpQLSdaw5kStb404VTxHk12sbImiQ0CvpXRjt3U-gTj5qKgE5N6hg/viewform?usp=publish-editor"
     target="_blank"
     rel="noopener noreferrer"
