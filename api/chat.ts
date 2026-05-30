@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   }
 
   const developerKeywords = ["siapa pengembang","siapa yang buat kamu","siapa penciptamu","siapa yang bikin kamu","siapa yang ciptakan kamu","siapa yang program kamu","pengembangmu siapa","dibuat oleh siapa","developer kamu"];
-  const feedbackKeywords = ["beri masukan","memberi masukan","kasih masukan","saran untuk desa","kritik desa","feedback desa","masukan ke desa mekar sari"];
+  const feedbackKeywords = ["beri masukan","memberi masukan","kasih masukan","kasih masukan untuk desa","saran untuk desa","kritik desa","feedback desa","masukan ke desa mekar sari"];
   const bantuanKeywords = ["ajukan bantuan","minta bantuan","pengajuan bantuan","bantuan desa","form bantuan","mengajukan bantuan"];
 
 const customResponses = [
