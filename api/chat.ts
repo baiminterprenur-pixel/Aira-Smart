@@ -370,7 +370,7 @@ if (developerKeywords.some((kw) => cleanMsg.includes(kw))) {
 if (feedbackKeywords.some((kw) => cleanMsg.includes(kw))) {
   return res.status(200).json({
     reply: `
-    Terimakasih atas masukannya 🙏<br><br>
+    Terimakasih atas masukannya 🙏 ini jadi perbaikan untuk kami kedepannya.<br><br>
 
     <a
       href="https://docs.google.com/forms/d/e/1FAIpQLSdlDBHYsLwSpQcHNhCJQXn_NUGGhtvQAP76Lm8HOkCIvIFYpA/viewform?usp=header"
