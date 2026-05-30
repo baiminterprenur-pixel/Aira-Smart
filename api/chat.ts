@@ -293,12 +293,41 @@ Pastikan KTP dan KK almarhum/almarhumah serta data pelapor telah disiapkan sebel
   </a>
   `
 },
-  // 📄 SURAT KELAHIRAN
-  {
-    keywords: ["surat kelahiran","akta lahir","bayi lahir"],
-    reply: `Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kelahiran.<br><br>📄 Form Surat Kelahiran : Masih Kosong`
-  },
+// 📄 SURAT KELAHIRAN
+{
+  keywords: [
+    "surat kelahiran",
+    "surat keterangan kelahiran",
+    "akta lahir",
+    "akta kelahiran",
+    "bayi lahir",
+    "buat surat kelahiran",
+    "mau buat surat kelahiran"
+  ],
 
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Kelahiran.<br><br>
+
+Pastikan KTP dan KK orang tua serta data kelahiran bayi telah disiapkan sebelum mengisi formulir.<br><br>
+
+<a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSdj9lMNplC_SvYCvOqH2OcON0B0Hhot4IJzk7kebjubkbABVg/viewform?usp=publish-editor"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+>
+    📄 Isi Form Surat Kelahiran
+</a>
+  `
+},
   // 📄 SURAT AHLI WARIS
   {
     keywords: ["surat ahli waris","ahli waris","warisan"],
