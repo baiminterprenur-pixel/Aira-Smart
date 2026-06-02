@@ -89,6 +89,40 @@ Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi for
   </a>
   `
 },
+// 📄 SURAT KETERANGAN AHLI WARIS (SKAW)
+{
+  keywords: [
+    "buat surat keterangan ahli waris",
+    "mau buat surat ahli waris",
+    "surat keterangan ahli waris",
+    "skaw",
+    "buat skaw",
+    "ahli waris"
+  ],
+
+  reply: `
+Oke, silakan isi datamu jika ingin membuat Surat Keterangan Ahli Waris (SKAW).
+📌 Sebelum mengisi formulir, pastikan Anda telah menyiapkan: KTP almarhum/almarhumah, KTP ahli waris, dan data keluarga lengkap.
+
+Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi formulir.
+
+<a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSfJe2-3rgita5S63q6jIfNodcTU_QvZcVx4bXblq8eYBfFqow/viewform?usp=publish-editor"
+    target="_blank"
+    style="
+      display:inline-block;
+      background:#16a34a;
+      color:white;
+      padding:10px 16px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    "
+  >
+    📄 Isi Form Surat Keterangan Ahli Waris
+  </a>
+  `
+},
 
 // 📄 SURAT KETERANGAN BELUM NIKAH
 {
