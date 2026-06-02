@@ -131,6 +131,7 @@ Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi for
   keywords: [
     "buat surat penguburan",
     "mau buat surat penguburan",
+    "buat skp",
     "surat penguburan",
     "buat surat pemakaman",
     "mau buat surat pemakaman",
