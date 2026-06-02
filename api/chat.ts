@@ -146,9 +146,10 @@ Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi for
 Oke, silakan isi data jika ingin membuat Surat Penguburan / Surat Pemakaman.
 
 📌 Sebelum mengisi formulir, pastikan Anda telah menyiapkan:
-• KTP Pelapor
 • Kartu Keluarga Almarhum/Almarhumah
-• Surat Keterangan Kematian (jika ada)
+• Catatan Jam, Tanggal, bulan dan tahun penguburan
+• Catatan Alamat di makamkan
+
 
 Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi formulir.
 
