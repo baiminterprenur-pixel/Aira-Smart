@@ -126,6 +126,49 @@ Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi for
   </a>
   `
 },
+// ⚰️ SURAT PENGUBURAN / SURAT PEMAKAMAN
+{
+  keywords: [
+    "buat surat penguburan",
+    "mau buat surat penguburan",
+    "surat penguburan",
+    "buat surat pemakaman",
+    "mau buat surat pemakaman",
+    "surat pemakaman",
+    "izin pemakaman",
+    "surat izin pemakaman",
+    "surat keterangan penguburan",
+    "surat keterangan pemakaman"
+  ],
+
+  reply: `
+Oke, silakan isi data jika ingin membuat Surat Penguburan / Surat Pemakaman.
+
+📌 Sebelum mengisi formulir, pastikan Anda telah menyiapkan:
+• KTP Pelapor
+• Kartu Keluarga Almarhum/Almarhumah
+• Surat Keterangan Kematian (jika ada)
+
+Setelah berkas dan data siap, silakan klik tombol di bawah ini untuk mengisi formulir.
+
+<a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSdR8EWVl2ZSOjU9uYjfoTBDXwPGt1yVx9JmX2CXtE6UnXkdbA/viewform?usp=publish-editor"
+  target="_blank"
+  style="
+    display:inline-block;
+    background:#16a34a;
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+  "
+>
+  ⚰️ Isi Form Surat Penguburan / Pemakaman
+</a>
+`
+},
+
 
 // 📄 SKTM SEKOLAH
 {
